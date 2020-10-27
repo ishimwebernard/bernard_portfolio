@@ -129,8 +129,14 @@ ul{
 }
 .row2 .imageContainer{
     display:flex;
-    justify-content: left;
+	justify-content: left;
+	animation-name: myPictureFadeIn;
+	animation-duration: 3s;
   
+}
+@keyframes myPictureFadeIn{
+	from{opacity: 0;}
+	to{opacity: 1;}
 }
 .row2 .textContainer .textTitle{
     margin-top: 1.245rem;
@@ -220,5 +226,38 @@ ul{
 	width: 3rem;
 	height: 3rem;
 	margin-left: 0.625rem;
+
+}
+@media only screen and (max-width: 480px){
+	.content{
+		margin: 1rem 3rem 1rem 1rem;
+	}
+	.row1 .mobileNavigation{
+		display: block;
+		cursor: pointer;
+	}
+	
+	.row1 .mobileNavigation .line{
+		height: 0.225rem;
+		width: 2.25rem;
+		background: #000;
+		margin-top: 0.125rem;
+	}
+	.row1 .mobileNavigation{
+		float: right;
+		margin-left: calc(100%);
+	}
+	.row1 .nav{
+		display: none;
+	}
+	.content{
+		margin: 1rem 3rem 1rem 1rem;
+	}
+	@keyframes mobileAnimation{
+		from{margin-left: 1%;}
+		to{margin-left: 10%;}
+	}
+
+
 
 }
