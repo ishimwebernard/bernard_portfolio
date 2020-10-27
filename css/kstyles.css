@@ -132,7 +132,7 @@ ul{
 	border-radius: .5rem;
 	width: 21.875rem;
 	height: 25rem;
-	background-image: url("../images/gradient.png");
+	background-image: url("../assets/images/gradient.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 	animation-name: imagePro;
@@ -144,7 +144,7 @@ ul{
 	height: 25rem;
 	margin-top: 1.25rem;
 	margin-left: 1.25rem;
-	background-image: url("../images/owner.PNG");
+	background-image: url("../assets/images/owner.PNG");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
