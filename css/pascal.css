@@ -1,0 +1,32 @@
+*{
+    font-family: Roboto, sans-serif;
+}
+ .row2 .newsplot{
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.row2 .newsplot .plotcard h3{
+   font-size: 0.9375rem;
+   margin: .3rem 0 0 .5rem;
+   color: #D70046;
+}
+.row2 .newsplot .plotcard p{
+   font-size: 0.9rem;
+   padding: 0rem;
+   margin: .1rem 0 0 1rem;
+}
+.row2 .plotcard{
+   width: 22.125rem;
+   height: 21.3125rem;
+   background: #F5F5F5;
+   box-shadow: 0 .2rem 1rem 0 #999999;
+   border-radius:0.625rem; 
+   cursor: pointer;
+}
+.row2 .plotcard:hover{
+   background: #515151;
+}
+.row2 .plotcard:hover p{
+   color: #fff;
+}

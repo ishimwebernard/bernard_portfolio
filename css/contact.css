@@ -16,7 +16,8 @@ body{
 	display: grid;	
 	grid-template-columns: 	1fr 1fr;
 	background: transparent;
-	height: 7.5rem;
+
+	height: 4.5rem;
 }
 .row1 .logo .ishimwe{
 	font-weight: 300;
@@ -31,10 +32,29 @@ body{
 	
 }
 .row1 .nav{
-	float: left;
+	float: left;	
 	display: flex;
 	flex-direction: column;
-	
+}
+.row1 .nav .line{
+	width: 80%;
+	height: 0.6125rem;
+	background: #000;
+}
+.row1 .nav .line .demiline{
+	width: 40%;
+	margin-left: 60%;
+	height: 0.6125rem;
+	background: #515151;
+	animation-name: borderAnim;
+	animation-duration: 1s; 
+}
+.row1 .nav ul li:nth-child(4) a{
+	color: #D70046;
+}
+@keyframes borderAnim{
+	from{margin-right: calc(20%);}
+	to{margin-right: calc(0%);}
 }
 .row1 .mobileNavigation{
 	display: none;
@@ -73,27 +93,6 @@ body{
 	text-decoration: none;
 	color: #fff;
 }
-
-.row1 .nav .line{
-	width: 80%;
-	height: 0.6125rem;
-	background: #000;
-}
-.row1 .nav .line .demiline{
-	width: 20%;
-	height: 0.6125rem;
-	background: #515151;
-	margin-left: calc(20%);
-	animation-name: borderAnim;
-	animation-duration: 1s; 
-}
-.row1 .nav ul li:nth-child(2) a{
-	color: #D70046;
-}
-@keyframes borderAnim{
-	from{margin-left: 0rem;}
-	to{margin-left: calc(20%);}
-}
 ul{
 	list-style-type: none;
 }
@@ -124,79 +123,101 @@ ul{
 	color: #000;
 }
 .row2{
-    margin-top: 0rem;
-
-}
-.row2 .imageContainer{
-    display:flex;
-	justify-content: left;
-	animation-name: myPictureFadeIn;
-	animation-duration: 3s;
-  
-}
-@keyframes myPictureFadeIn{
-	from{opacity: 0;}
-	to{opacity: 1;}
-}
-.row2 .textContainer .textTitle{
-    margin-top: 1.245rem;
-    font-weight: 700;
-    letter-spacing: .03rem;
-}
-.row2 .textContainer .text{
-    margin-top: 1.245rem;
-    font-weight: 400;
-}
-.row2 .textContainer .text span{
-   font-weight: 700;
-   color: #D70046;
-}
-.row2 .resumebutton{
-	padding: .5rem;
+	width: 100%;
+	height: 15.875rem;
+	background-image: url("../images/gradient.png");
+	background-size: cover;
+	color: #fff;
 	text-align: center;
-	border: .12554rem #D70046 solid;
-	margin-top: 3.625rem;
-	width: 5.125rem;
-
 }
-.row2 .resumebutton .resume{
-	text-transform: uppercase;
-	color: #D70046;
+.row2 h2{
+	font-family: Roboto;
+	height: 100%;
+	text-align: center;
+	width: 100%;
+	font-weight: 400;
+	padding-top: 4rem;
+	font-size: 3.75rem;
+}
+.row2 h2 span{
 	font-weight: 700;
 }
-.row2 .boxn{
-	margin-top: 3.65rem;
-	display: flex;
-	justify-content: center;
-	text-align: center;
-	flex-direction: column;
+.row3{
+	margin-top: 2rem;
 }
-.row2 .boxncontent{
-	margin-top: 1.5rem;
-	font-weight: 400;
+
+.row3 .feed{
+	margin-top: 6rem;
+}
+.row3 .feed .f{
+	font-size: 3.125rem ;
+	color: #D70046;
+}
+.row3 .feed span{
+   background: #D70046;
+   padding: .7rem;
+   color: #fff;
+}
+.row3 .form{
+	margin-top: 2.625rem;
+}
+.row3 .form .sect1{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.row3 .form .sect1 .ensemble p{
+	font-weight: 700;
+	font-size: 1.5625rem;
+}
+.row3 .form .sect1 .ensemble input{
+	font-weight: 500;
+	font-size: 1.5625rem;
+	width: 80%;
+	background: #F2F2F2;
+	border: none;
+	border-radius: 0.625rem;
+	padding: 0.625rem;
+}
+.row3 .form .sect2 .texta{
+	width: 100%;
+	background: #F2F2F2;
+	border: none;
+	margin-top: 4rem;
+	border-radius: 0.625rem;
+	font-family: Roboto;
 	font-size: 1.25rem;
+
 }
-.row2 .boxn img{
-	width: 32.625rem;
-	align-self: center;
-	height: 16.5rem;
-}
-.row1 .boxn .imageSet{
-	display: flex;
-	flex-direction: row;
-}
-.row2 .boxk{
-	margin-top: 3.65rem;
-	display: flex;
-	justify-content: center;
+.row3 .form .sect2 .searchButton{
 	text-align: center;
-	flex-direction: column;
+	background: #D70046;
+	padding-top: .5rem;
+	height: 2.175rem;
+	cursor: pointer;
+	display: grid;
+	margin-left: 85%;
+	margin-top: .7rem;
+	width: 8.625rem;
+	color: #fff;
+	text-align: center;
+	justify-content: center;
+	border-radius: 0.625rem;
+	font-weight: 700;
+	font-size: 1.5rem;
+ 
 }
-.row1 .boxk .imageSet img{
-	width: 105px;
-	height: 210px;
-	margin-left: 0.625rem;
+.row4 h2{
+	padding-top: 10%;
+	width: 100%;
+	font-weight: 400;
+	font-size: 3.75rem;
+	text-align: center;
 }
+.row4 h2 span{
+	font-weight: 700;
+	color: #D70046;
+}
+
 .footer{
 	margin-top: 6rem;
 	border-top: 0.125rem #eee solid;
@@ -228,9 +249,26 @@ ul{
 	margin-left: 0.625rem;
 
 }
+.row4 .mapsection{
+	background: #F2F2F2;
+	display: flex;
+	padding: 1.2rem;
+	flex-direction: row;
+}
+.row4 .mapsection .explsection{
+	margin-left: 1.225rem;
+	color: #515151;
+}
+.row4 .mapsection .explsection h3{
+	color: #000;
+	font-weight: 700;
+	font-size: 1.875rem;
+}
+
 @media only screen and (max-width: 480px){
 	.content{
 		margin: 1rem 3rem 1rem 1rem;
+		font-size: 15px;
 	}
 	.row1 .mobileNavigation{
 		display: block;
@@ -250,14 +288,33 @@ ul{
 	.row1 .nav{
 		display: none;
 	}
-	.content{
-		margin: 1rem 3rem 1rem 1rem;
+	.row3 .form .sect1 .ensemble p{
+		font-size: 1.25rem;
 	}
-	@keyframes mobileAnimation{
-		from{margin-left: 1%;}
-		to{margin-left: 10%;}
+	.row3 .form .sect1 .ensemble input{
+		font-size: 1rem;
+	}
+	.row3 .form .sect1 .ensemble:nth-child(2){
+		margin-left: 1rem;
+		width: 100%;
+	}
+	.row3 .form .sect2 .searchButton{
+		margin-left: 60%;
+	}
+	.row4 .contactus{
+		font-size: 2.5625rem;
+	}
+	.row4 .mapsection {
+		padding: 0rem;
+		display: flex;
+		
+		flex-direction: column;
+		width: 100%;
+	
+	}
+	.row4 .mapsection img{
+		height: 10rem;
 	}
 
-
-
+	
 }
