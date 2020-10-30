@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />  
+    <title>Admin Dashboard</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    function snav(){
+        console.log(`I am done`);
+    }
+
+      google.charts.load('current', {'packages':['corechart']});
+
+      google.charts.setOnLoadCallback(drawSubscribers);
+      google.charts.setOnLoadCallback(drawUsers);
+      function drawSubscribers() {
+        var data = google.visualization.arrayToDataTable([
+          ['Day', 'Subscribers'],
+          ['Mon',  1000],
+          ['Tue',  1170],
+          ['Wed',  660],
+          ['Thur',  1030],
+          [`Sat`,234],
+          [`Sub`,5656]
+        ]);
+
+        var options = {
+          title: 'Subscribers: This week',
+          curveType: 'function',
+          legend: { position: 'bottom' },
+          backgroundColor: `#FAFAFA`,
+          colors:['D70046','#000']
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('subscribersChart'));
+
+        chart.draw(data, options);
+      }
+
+      function drawUsers() {
+        var data = google.visualization.arrayToDataTable([
+        ['Day', 'Users'],
+          ['Mon',  0],
+          ['Tue',  2170],
+          ['Wed',  18656],
+          ['Thur',  2030],
+          [`Sat`,234],
+          [`Sub`,10656]
+        ]);
+
+        
+        var options = {
+          title: 'Users: This week',
+          curveType: 'function',
+          legend: { position: 'bottom' },
+          backgroundColor: `#FAFAFA`,
+          colors:['D70046','#000']
+        };
+       
+
+        var chart = new google.visualization.LineChart(document.getElementById('usersChart'));
+
+        chart.draw(data, options);
+      }
+      function revealDashboard(){
+    document.getElementById(`col1`).style.display = block;
+    console.log(`Revealed`);
+}
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="../css/adminpanel.css">
+</head>
+<body>
+    <div class="content">
+        <div class="col1" id="col1">
+            <div class="logo">
+				<div class="ishimwe">ISHIMWE</div>
+				<div class="bernard">BERNARD</div>
+            </div>
+            <div class="profilecontainer">
+            </div>
+            <div class="navigation">
+                <div class="navItem">
+                    <img src="../assets/images/users.png" alt="">
+                    <h4 class="navTitle">Dashboard</h4>
+                </div>
+                <div class="navItem">
+                    <img src="../assets/images/users.png" alt="">
+                    <h4 class="navTitle">Users</h4>
+                </div>
+                <div class="navItem">
+                    <img src="../assets/images/users.png" alt="">
+                    <h4 class="navTitle">Articles</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col2">
+           <div class="hdcnt">
+            <div class="mobileNavigationButton" style="float:left; margin-top: 1.15rem; cursor: pointer;" onclick="document.getElementById('col1').display = 'none';">
+                <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+                <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+                <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+            </div>
+           <h1 class="col2Title" style="margin-left: 5rem;">Dashboard</h1>
+           </div>
+           <div class="stats">
+               <div class="statItem">
+                   <img src="../assets/images/tiles.png" alt="">
+                   <div class="statdesc">
+                       <h3 class="number">1200</h3>
+                       <P class="sampleTxt">USERS</P>
+                   </div>
+               </div>
+               <div class="statItem">
+                <img src="../assets/images/subscribers.png" alt="">
+                <div class="statdesc">
+                    <h3 class="number">1200</h3>
+                    <P class="sampleTxt">SUBSCR</P>
+                </div>
+            </div>
+            <div class="statItem">
+                <img src="../assets/images/articles.png" alt="">
+                <div class="statdesc">
+                    <h3 class="number">1200</h3>
+                    <P class="sampleTxt">ARTICLES</P>
+                </div>
+            </div>
+            <div class="statItem">
+                <img src="../assets/images/online.png" alt="">
+                <div class="statdesc">
+                    <h3 class="number">1200</h3>
+                    <P class="sampleTxt">ONLINE</P>
+                </div>
+            </div>
+           </div>
+           <div class="graphs">
+            <div id="subscribersChart" class="chart"></div>
+            <div id="usersChart"  class="chart" ></div>
+
+    
+
+           </div>
+           <div class="feed">
+            <h1 class="f"><span>F</span>eed</h2>
+             <div class="edit"><h4>Edit</h4></div>   
+        </div>
+        <div class="newsplot" id="one">
+            <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                <img src="../assets/images/iwon.png" alt="I won the prize">
+                <h3 class="header">I won the Africa App development award</h3>
+                <p class="contentx">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis eget congue. Aliquam non mauris non dui pulvinar bibendum ac eget nulla. Integer a metus sollicitudin, luctus nunc eu, posuere massa. </p>
+            </div>
+            <div class="plotcard" id="iwon">
+                <img src="../assets/images/code.png" alt="I won the prize">
+                <h3 class="header">I won the Africa App development award</h3>
+                <p class="contentx">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis eget congue. Aliquam non mauris non dui pulvinar bibendum ac eget nulla. Integer a metus sollicitudin, luctus nunc eu, posuere massa. </p>
+            </div>
+            <div class="plotcard" id="iwon">
+                <img src="../assets/images/mac.png" alt="I won the prize">
+                <h3 class="header">I won the Africa App development award</h3>
+                <p class="contentx">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis eget congue. Aliquam non mauris non dui pulvinar bibendum ac eget nulla. Integer a metus sollicitudin, luctus nunc eu, posuere massa. </p>
+            </div>
+            
+        </div>
+        </div>
+        
+    </div>
+</body>
+</html>
