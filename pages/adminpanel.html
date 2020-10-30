@@ -67,6 +67,18 @@
     document.getElementById(`col1`).style.display = block;
     console.log(`Revealed`);
 }
+function REVEALDOM(){
+    var myDoc = document.getElementById(`col1`);
+    if(myDoc.style.display == `none`){
+        myDoc.style.display = `block`;
+        
+    }else{
+        myDoc.style.display = `none`;
+    }
+    console.log(`I was called`);
+
+
+}
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -76,6 +88,7 @@
 <body>
     <div class="content">
         <div class="col1" id="col1">
+          
             <div class="logo">
 				<div class="ishimwe">ISHIMWE</div>
 				<div class="bernard">BERNARD</div>
@@ -95,11 +108,19 @@
                     <img src="../assets/images/users.png" alt="">
                     <h4 class="navTitle">Articles</h4>
                 </div>
+                <div class="navItem" style="display: flex; flex-direction: row;"onclick="REVEALDOM()">
+                    <h4 class="navTitle">Back</h4>
+                    <img src="../assets/images/back.png" alt="">
+
+                </div>
+                
             </div>
+          
+         
         </div>
-        <div class="col2">
+        <div id="col2" class="col2">
            <div class="hdcnt">
-            <div class="mobileNavigationButton" style="float:left; margin-top: 1.15rem; cursor: pointer;" onclick="document.getElementById('col1').display = 'none';">
+            <div id="mobileNavigationButton" class="mobileNavigationButton" style="float:left; margin-top: 1.15rem; cursor: pointer;" onclick="REVEALDOM()">
                 <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
                 <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
                 <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
