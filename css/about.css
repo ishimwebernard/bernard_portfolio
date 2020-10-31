@@ -11,6 +11,7 @@ body{
 	margin: 2rem 6rem 2rem 5rem;
 	width: 	85%;
 	height: 100%;
+	overflow-x: hidden;
 }
 .row1{
 	display: grid;	
@@ -36,42 +37,52 @@ body{
 	flex-direction: column;
 	
 }
+
 .row1 .mobileNavigation{
 	display: none;
-	
+
 }
 .row1 .mavigationBarMobile{
-	background: #515151;
-	width: 40%;
-	height: 30%;
+	background: #FAFAFA;
+	width: 80%;
+	height: 100%;
 	padding: 1rem;
 	position: absolute;
-	opacity: 90%;
-	text-align: left;
+	text-align: center;
 	display: none;
 	float: right;
-	margin-top:1.6rem;
-	margin-left: 45%;
-	border-radius: 0.875rem;
-	animation-name: DROPDOWNANIME;
-	animation-duration: 3s;
+	animation-name: googleClone;
+	animation-duration: 1s;
+
 }
-@keyframes DROPDOWNANIME{
-	from{height: 0%;}
-	to{height: 30%;}
+@keyframes googleClone{
+	from{width: 0%;}
+	to{width: 80%;}
 }
+
 .row1 .mavigationBarMobile ul li{
 	margin-top: .4rem;
-	border-bottom: .3rem #D70046 solid;
 	text-decoration: none;
-	color: #fff;
+	color: #686868;
 	font-weight: 700;
 	font-family: Roboto, sans-serif;
-	
+
 }
 .row1 .mavigationBarMobile ul li a{
 	text-decoration: none;
-	color: #fff;
+	color: #686868;
+	font-size: 25px;
+	margin-top: 2rem;
+
+}
+.row1 .mavigationBarMobile #back{
+	color: #D70046;
+	cursor: pointer;
+}
+
+.row1 .mavigationBarMobile ul li a:hover{
+	color: #000;
+
 }
 
 .row1 .nav .line{
@@ -245,7 +256,7 @@ ul{
 	}
 	.row1 .mobileNavigation{
 		float: right;
-		margin-left: calc(100%);
+		margin-left: calc(70%);
 	}
 	.row1 .nav{
 		display: none;
