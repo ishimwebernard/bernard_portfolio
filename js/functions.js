@@ -1,9 +1,8 @@
 function REVEALDOM(){
-    var myDoc = document.getElementById(`mavigationBarMobile`);
-    if(myDoc.style.display == `none`){
-        myDoc.style.display = `block`;
+    var dc  = document.getElementById('mavigationBarMobile');
+    if(dc.style.display == "block"){
+        dc.style.display = "none";
     }else{
-        myDoc.style.display = `none`;
+        dc.style.display = "block";
     }
-                            
 }
