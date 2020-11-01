@@ -5,81 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />  
     <title>Admin Dashboard</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-    function snav(){
-        console.log(`I am done`);
-    }
-
-      google.charts.load('current', {'packages':['corechart']});
-
-      google.charts.setOnLoadCallback(drawSubscribers);
-      google.charts.setOnLoadCallback(drawUsers);
-      function drawSubscribers() {
-        var data = google.visualization.arrayToDataTable([
-          ['Day', 'Subscribers'],
-          ['Mon',  1000],
-          ['Tue',  1170],
-          ['Wed',  660],
-          ['Thur',  1030],
-          [`Sat`,234],
-          [`Sub`,5656]
-        ]);
-
-        var options = {
-          title: 'Subscribers: This week',
-          curveType: 'function',
-          legend: { position: 'bottom' },
-          backgroundColor: `#FAFAFA`,
-          colors:['D70046','#000']
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('subscribersChart'));
-
-        chart.draw(data, options);
-      }
-
-      function drawUsers() {
-        var data = google.visualization.arrayToDataTable([
-        ['Day', 'Users'],
-          ['Mon',  0],
-          ['Tue',  2170],
-          ['Wed',  18656],
-          ['Thur',  2030],
-          [`Sat`,234],
-          [`Sub`,10656]
-        ]);
-
-        
-        var options = {
-          title: 'Users: This week',
-          curveType: 'function',
-          legend: { position: 'bottom' },
-          backgroundColor: `#FAFAFA`,
-          colors:['D70046','#000']
-        };
-       
-
-        var chart = new google.visualization.LineChart(document.getElementById('usersChart'));
-
-        chart.draw(data, options);
-      }
-      function revealDashboard(){
-    document.getElementById(`col1`).style.display = block;
-    console.log(`Revealed`);
-}
-function REVEALDOM(){
-    var myDoc = document.getElementById(`col1`);
-    if(myDoc.style.display == `none`){
-        myDoc.style.display = `block`;
-        
-    }else{
-        myDoc.style.display = `none`;
-    }
-    console.log(`I was called`);
-
-
-}
-    </script>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -95,16 +21,16 @@ function REVEALDOM(){
             </div>
             <div class="profilecontainer">
             </div>
-            <div class="navigation">
-                <div class="navItem">
-                    <img src="../assets/images/users.png" alt="">
+            <div class="navigation" >
+                <div class="navItem" onclick="changeTab('col2')">
+                    <img src="../assets/images/users.png" alt="" >
                     <h4 class="navTitle">Dashboard</h4>
                 </div>
-                <div class="navItem">
+                <div class="navItem" onclick="changeTab('usersTab')">
                     <img src="../assets/images/users.png" alt="">
                     <h4 class="navTitle">Users</h4>
                 </div>
-                <div class="navItem">
+                <div class="navItem" onclick="changeTab('Articles')">
                     <img src="../assets/images/users.png" alt="">
                     <h4 class="navTitle">Articles</h4>
                 </div>
@@ -187,7 +113,267 @@ function REVEALDOM(){
             
         </div>
         </div>
+        <div class="col2" id="usersTab">
+            <div class="hdcnt">
+                <div id="mobileNavigationButton" class="mobileNavigationButton" style="float:left; margin-top: 1.15rem; cursor: pointer;" onclick="REVEALDOM()">
+                    <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+                    <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+                    <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+                </div>
+               <h1 id="userTitleInTitle" class="col2Title" style="margin-left: 5rem;">Users</h1>
+              
+               </div>
+              <div class="newSexion">
+                  <div class="singleUserInfo" id="singleUserInfo">
+                      <div class="basInfo">
+                        <img src="../assets/images/user4.png" class="profile" id="profile">
+                       <div class="tt">
+                        
+                            <h3 class="title" id="name">John Jones</h3>
+                            <div class="cred">
+                                <img src="../assets/images/location.png" alt="">
+                                <div class="p" id="location">Massachusets</div>
+                            </div>
+                            <div class="cred">
+                              <img src="../assets/images/gmail.png" alt="">
+                              <div class="p" id="email">emailemail.com</div>
+                          </div>
+                          <div class="cred">
+                              <img src="../assets/images/time.png" alt="">
+                              <div class="p" id="dateJoined">Joined: 1/1/2000</div>
+                          </div>
+                       
+                       </div>
+                      </div>
+                      <div class="textSection">
+                        <div class="header">
+                            <p>Action</p>
+                            <p>Date</p>
+                        </div>
+                        <div class="item">
+                            <p>Comment</p>
+                            <p>10/28/12</p>
+                        </div>
+                        <div class="item">
+                            <p>Read Article</p>
+                            <p>10/28/12</p>
+                        </div>
+                        <div class="item">
+                            <p>Call me</p>
+                            <p>10/28/12</p>
+                        </div>
+                        <div class="item">
+                            <p>SDprinted</p>
+                            <p>10/28/12</p>
+                        </div>
+                        <div class="item">
+                            <p>Ate</p>
+                            <p>10/28/12</p>
+                        </div>
+                        <div class="item">
+                            <p>Called Me</p>
+                            <p>10/28/12</p>
+                        </div>
+                      </div>
+                  </div>
+                <div class="usersDisplayer">
+                    <div class="user" onclick="displayInformation('../assets/images/user1.png','Ronald Richards','Rwanda','ishimer','2001')">
+                        <img class="userProfile" role="img" aria-label="User" src="../assets/images/user1.png">
+                        <div class="credentials">
+                            <div class="nameAndStatus">
+                                <p class="name">Ronald Richards</p>
+                                <div class="avail"></div>
+                            </div>
+                            <p class="email">emailemail@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="user" onclick="displayInformation('../assets/images/user2.png','Ronald Richards','Rwanda','ishimer','2001')">
+                        <img class="userProfile" role="img" aria-label="User" src="../assets/images/user2.png">
+                        <div class="credentials">
+                            <div class="nameAndStatus">
+                                <p class="name">Ronald Richards</p>
+                                <div class="avail"></div>
+                            </div>
+                            <p class="email">emailemail@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="user" onclick="displayInformation('../assets/images/user3.png','Devon Lane','Mozambique','devonlane@gmail.com','12/4/2007')">
+                        <img class="userProfile" role="img" aria-label="User" src="../assets/images/user3.png">
+                        <div class="credentials">
+                            <div class="nameAndStatus">
+                                <p class="name">Devon Lane</p>
+                                <div class="avail"></div>
+                            </div>
+                            <p class="email">emailemail@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="user" onclick="displayInformation('../assets/images/user4.png','Esther Howard','South Africa','estherhoward@gmail.com','12/4/2005')">
+                        <img class="userProfile" role="img" aria-label="User" src="../assets/images/user4.png">
+                        <div class="credentials">
+                            <div class="nameAndStatus">
+                                <p class="name">Esther Howard</p>
+                                <div class="avail"></div>
+                            </div>
+                            <p class="email">emailemail@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="user" onclick="displayInformation('../assets/images/user5.png','Savannah Nguyen','Kenya','sanavaken@hotmail.com','1/5/2020')">
+                        <img class="userProfile" role="img" aria-label="User" src="../assets/images/user5.png">
+                        <div class="credentials">
+                            <div class="nameAndStatus">
+                                <p class="name">Savannah Nguyen</p>
+                                <div class="avail"></div>
+                            </div>
+                            <p class="email">emailemail@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="user" onclick="displayInformation('../assets/images/user6.png','Eleanor Pena','Rwanda','eleanor@hotmail.com','1/5/2020')">
+                        <img class="userProfile" role="img" aria-label="User" src="../assets/images/user6.png">
+                        <div class="credentials">
+                            <div class="nameAndStatus">
+                                <p class="name">Eleanor Pena</p>
+                                <div class="avail"></div>
+                            </div>
+                            <p class="email">emailemail@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="user" onclick="displayInformation('../assets/images/user7.png','Cameron Williamson','Congo','camreom@hotmail.com','1/5/2020')">
+                        <img class="userProfile" role="img" aria-label="User" src="../assets/images/user7.png">
+                        <div class="credentials">
+                            <div class="nameAndStatus">
+                                <p class="name">Cameron Williamson</p>
+                                <div class="avail"></div>
+                            </div>
+                            <p class="email">emailemail@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="user" onclick="displayInformation('../assets/images/user4.png','Albert Flores','Burundi','flores@hotmail.com','1/5/2020')">
+                        <img class="userProfile" role="img" aria-label="User" src="../assets/images/user4.png">
+                        <div class="credentials">
+                            <div class="nameAndStatus">
+                                <p class="name">Albert Flores</p>
+                                <div class="avail"></div>
+                            </div>
+                            <p class="email">emailemail@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </div>
+        <div class="col2" id="Articles">
+            <div class="hdcnt">
+                <div id="mobileNavigationButton" class="mobileNavigationButton" style="float:left; margin-top: 1.15rem; cursor: pointer;" onclick="REVEALDOM()">
+                    <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+                    <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+                    <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+                </div>
+               <h1 class="col2Title" style="margin-left: 5rem;">Dashboard</h1>
+               </div>
+        </div>
         
     </div>
+    <script type="text/javascript">
+        function snav(){
+            console.log(`I am done`);
+        }
+    
+          google.charts.load('current', {'packages':['corechart']});
+    
+          google.charts.setOnLoadCallback(drawSubscribers);
+          google.charts.setOnLoadCallback(drawUsers);
+          function drawSubscribers() {
+            var data = google.visualization.arrayToDataTable([
+              ['Day', 'Subscribers'],
+              ['Mon',  1000],
+              ['Tue',  1170],
+              ['Wed',  660],
+              ['Thur',  1030],
+              [`Sat`,234],
+              [`Sub`,5656]
+            ]);
+    
+            var options = {
+              title: 'Subscribers: This week',
+              curveType: 'function',
+              legend: { position: 'bottom' },
+              backgroundColor: `#FAFAFA`,
+              colors:['D70046','#000']
+            };
+    
+            var chart = new google.visualization.LineChart(document.getElementById('subscribersChart'));
+    
+            chart.draw(data, options);
+          }
+    
+          function drawUsers() {
+            var data = google.visualization.arrayToDataTable([
+            ['Day', 'Users'],
+              ['Mon',  0],
+              ['Tue',  2170],
+              ['Wed',  18656],
+              ['Thur',  2030],
+              [`Sat`,234],
+              [`Sub`,10656]
+            ]);
+    
+            
+            var options = {
+              title: 'Users: This week',
+              curveType: 'function',
+              legend: { position: 'bottom' },
+              backgroundColor: `#FAFAFA`,
+              colors:['D70046','#000']
+            };
+           
+    
+            var chart = new google.visualization.LineChart(document.getElementById('usersChart'));
+    
+            chart.draw(data, options);
+          }
+          function revealDashboard(){
+        document.getElementById(`col1`).style.display = block;
+        console.log(`Revealed`);
+    }
+    function REVEALDOM(){
+        var myDoc = document.getElementById(`col1`);
+        if(myDoc.style.display == `none`){
+            myDoc.style.display = `block`;
+            
+        }else{
+            myDoc.style.display = `none`;
+        }
+        console.log(`I was called`);
+    }
+    function changeTab(contentID){
+        var litItems = document.getElementsByClassName(`col2`);
+        var counter;
+        for(counter = 0; counter < litItems.length;counter++){
+           litItems[counter].style.display = "none";
+           console.log(Number(litItems.length));
+        }
+        console.log(Number(counter));
+        document.getElementById(contentID).style.display = "block";
+        console.log(`Trying to reveal ${contentID}`);
+    }
+    function displayInformation(IMAGESOURCE,NAME,LOCATION,EMAIL,DATEJOOINED){
+        var imageSetter = document.getElementById(`profile`);
+        var email = document.getElementById('email');
+        var dateJoined = document.getElementById(`dateJoined`);
+        var name = document.getElementById(`name`);
+        var location = document.getElementById(`location`);
+        var element = document.querySelector("#singleUserInfo");
+        
+
+        imageSetter.src = IMAGESOURCE;
+        email.innerText = EMAIL;
+        dateJoined.innerText = DATEJOOINED;
+        name.innerText = NAME;
+       location.innerText = LOCATION;
+       element.scrollIntoView();
+       
+    }
+    
+    
+        </script>
 </body>
 </html>
