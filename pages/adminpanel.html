@@ -267,8 +267,167 @@
                     <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
                     <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
                 </div>
-               <h1 class="col2Title" style="margin-left: 5rem;">Dashboard</h1>
+               <h1 class="col2Title" style="margin-left: 5rem;">Articles</h1>
+            
                </div>
+               <div class="buttonGroup">
+                <div class="button" onclick="showPopup()">
+                    <img src="../assets/images/new.png" alt="">
+                    <h4 class="desc">New</h4>
+                </div>
+                <div class="button" onclick="showPopupRemove()" >
+                 <img src="../assets/images/remove.png" alt="">
+                 <h4 class="desc">Remove</h4>
+             </div>
+            </div>
+            <div class="presentArticle">
+                <div class="board">
+                    <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                        <img src="../assets/images/iwon.png" alt="I won the prize">
+                       <div class="cc">
+                        <h3 class="header">I won the Africa App development award</h3>
+                        <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                       </div>
+                    </div>
+                            
+                    <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                        <img src="../assets/images/iwon.png" alt="I won the prize">
+                       <div class="cc">
+                        <h3 class="header">I won the Africa App development award</h3>
+                        <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                       </div>
+                    </div>
+                    <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                        <img src="../assets/images/iwon.png" alt="I won the prize">
+                       <div class="cc">
+                        <h3 class="header">I won the Africa App development award</h3>
+                        <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                       </div>
+                    </div>
+                            </div>
+                            <div class="board">
+                                <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                                    <img src="../assets/images/iwon.png" alt="I won the prize">
+                                   <div class="cc">
+                                    <h3 class="header">I won the Africa App development award</h3>
+                                    <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                                   </div>
+                                </div>
+                                        
+                                <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                                    <img src="../assets/images/iwon.png" alt="I won the prize">
+                                   <div class="cc">
+                                    <h3 class="header">I won the Africa App development award</h3>
+                                    <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                                   </div>
+                                </div>
+                                <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                                    <img src="../assets/images/iwon.png" alt="I won the prize">
+                                   <div class="cc">
+                                    <h3 class="header">I won the Africa App development award</h3>
+                                    <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                                   </div>
+                                </div>
+                                        </div>
+                                        <div class="board">
+                                            <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                                                <img src="../assets/images/iwon.png" alt="I won the prize">
+                                               <div class="cc">
+                                                <h3 class="header">I won the Africa App development award</h3>
+                                                <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                                               </div>
+                                            </div>
+                                                    
+                                            <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                                                <img src="../assets/images/iwon.png" alt="I won the prize">
+                                               <div class="cc">
+                                                <h3 class="header">I won the Africa App development award</h3>
+                                                <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                                               </div>
+                                            </div>
+                                            <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                                                <img src="../assets/images/iwon.png" alt="I won the prize">
+                                               <div class="cc">
+                                                <h3 class="header">I won the Africa App development award</h3>
+                                                <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                                               </div>
+                                            </div>
+                                                    </div>
+            </div>
+            <!--For the addition of a new blog or article-->
+   <div class="pco" id="pco">
+    <div class="popup" id="popup">
+                
+        <div class="first">
+           <h2 class="fititle"><span>N</span>ew article</h2>
+       </div>
+       <input type="text" placeholder="Title" >
+       <textarea name="" id="" cols="30" rows="8" placeholder="Enter Content | Drag and Drop images"></textarea>
+       <div class="optionsSide">
+           <div class="cancel" onclick="hidePopup()">
+               <h4 class="word" >Cancel</h4>
+           </div>
+           <div class="cancel" onclick="hidePopup()">
+               <h4 class="word">Finish</h4>
+           </div>
+           
+       </div>
+       
+                   </div>
+           
+   </div>
+     <!--For the re,oval of an  article-->
+   <div class="pcox" id="pcox">
+    <div class="popup" id="listRemove">
+                      
+        <div class="first">
+            <h2 class="fititle"><span>R</span>emove article</h2>
+        </div>
+        <div class="cont">
+            <label class="cn">I won the hackathon
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+              </label>
+              <label class="cn">I created a new App
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="cn">Amet minim mollit non 
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="cn">Lorem ipsum dolor sit amet
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="cn">nibh, elementum in tellus non
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="cn">consectetur diam sollicitudin nec. 
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="cn">I created a new App
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="cn">I created a new App
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+        </div>
+            <div class="optionsSide">
+                <div class="cancel" onclick="hidePopupRemove()">
+                    <h4 class="word" >Cancel</h4>
+                </div>
+                <div class="cancel" onclick="hidePopupRemove()">
+                    <h4 class="word">Finish</h4>
+                </div>
+                
+            </div>
+        </div>   
+   </div>
         </div>
         
     </div>
@@ -371,6 +530,26 @@
        location.innerText = LOCATION;
        element.scrollIntoView();
        
+    }
+    function  hidePopup(){
+        var element = document.getElementById('pco');
+        element.style.display = "none";
+        console.log(element.innerHTML);
+    }
+    function  showPopup(){
+        var element = document.getElementById('pco');
+        element.style.display = "block";
+        console.log(element.innerHTML);
+    }
+    function  showPopupRemove(){
+        var element = document.getElementById('pcox');
+        element.style.display = "block";
+        console.log(`Trigerred the remove feature`);
+    }
+    function  hidePopupRemove(){
+        var element = document.getElementById('pcox');
+        element.style.display = "none";
+        console.log(`Trigerred the remove feature`);
     }
     
     

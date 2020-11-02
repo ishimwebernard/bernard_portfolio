@@ -299,6 +299,246 @@ body{
    margin-top: 0;
    
 }
+#Articles{
+    display: none;
+    height: 100%;
+}
+#Articles .buttonGroup .button{
+    display: flex;
+    flex-direction: row;
+    padding: 7.5px;
+    cursor: pointer ;
+    border: 2px #D70046 solid;
+    border-radius: 10px;
+    width: 110px;
+
+}
+#Articles .buttonGroup .button:hover{
+    background: #A6A6A6;
+    border: 2px #515151 solid;
+
+}
+#Articles .buttonGroup .button:hover .desc{
+    color: #515151;
+    
+}
+
+
+
+
+#Articles .buttonGroup .button:last-child{
+  margin-left: 20px;
+
+}
+#Articles .buttonGroup{
+    display: flex;
+    flex-direction: row;
+}
+#Articles .buttonGroup h4{
+    margin-left: 5px;
+    margin-top: 3.5px;
+    color: #D70046;
+    font-size: 1.5rem;
+}
+#Articles .presentArticle .board{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+#Articles .presentArticle .board:first-child{
+    margin-top: 25px;
+}
+#Articles .presentArticle .board .plotcard:nth-child(2){
+    margin-left: 30px;
+}
+#Articles .presentArticle .board .plotcard:last-child{
+    margin-left: 30px;
+}
+#Articles .presentArticle .board .plotcard{
+    display: flex;
+    flex-direction: column;
+}
+#Articles .presentArticle .board .plotcard p{
+   width: 100%;
+   padding: 1px;
+   margin-bottom: 10px;
+}
+#Articles .presentArticle .board .plotcard .cc{
+    padding: 10px;
+    margin-bottom: 10px;
+}
+#Articles .pco{
+    display: none;
+}
+#Articles .popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 60%;
+    background: #D1D1D1;
+    z-index: 102;
+    margin-left: 20%;
+    margin-top: 10%;
+    border-radius: 10px;
+    border: 1px #D70046 solid;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    animation-name: ios;
+    animation-duration: .77s;
+    
+}
+@keyframes ios{
+    from{margin-top: 0%;}
+    to{margin-top: 10%;}
+}
+#Articles .popup .first{
+    margin-top: 10px;
+}
+#Articles .popup .first .fititle{
+     font-size: 2.525rem ;
+     color: #D70046;
+ }
+ #Articles .popup .first .fititle span{
+    background: #D70046;
+    padding: .2rem;
+    color: #fff;
+ }
+ #Articles .popup input{
+     padding: 5px;
+     height: 20px;
+     background: #E4E4E4;
+     color: #969696;
+     border: none;
+     font-size: 1.5rem;
+     border-radius: 5px;
+     margin-top: 15px;
+ }
+ #Articles .popup textarea{
+    padding: 5px;
+    background: #E4E4E4;
+    color: #000;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-family: Roboto,sans-serif;
+    resize: none;
+ }
+#Articles .popup .optionsSide{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+#Articles .popup .optionsSide .cancel{
+    padding: 10px;
+    color: #E4E4E4;
+    background: #515151;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+}
+#Articles .popup .optionsSide .cancel:last-child{
+    margin-left: 10px;
+    background: #D70046;
+    cursor: pointer;
+    color: #fff;
+}
+#Articles .pcox{
+    display: none;
+}
+
+
+#Articles .popup .cont{
+    margin-top: 20px;
+    overflow-y: scroll;
+}
+
+
+
+#Articles .pcox  .cont .cn{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  #Articles .pcox  .cont .cn input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  #Articles .pcox  .cont .cn .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  #Articles .pcox  .cont .cn:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  #Articles .pcox  .cont .cn input:checked ~ .checkmark {
+    background-color: #D70046;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  #Articles .pcox  .cont .cn .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
