@@ -24,17 +24,17 @@
             <div class="navigation" >
                 <div class="navItem" onclick="changeTab('col2')">
                     <img src="../assets/images/users.png" alt="" >
-                    <h4 class="navTitle">Dashboard</h4>
+                    <h4 class="navTitle"  id="dashboard">Dashboard</h4>
                 </div>
                 <div class="navItem" onclick="changeTab('usersTab')">
                     <img src="../assets/images/users.png" alt="">
-                    <h4 class="navTitle">Users</h4>
+                    <h4 class="navTitle"  id="users">Users</h4>
                 </div>
                 <div class="navItem" onclick="changeTab('Articles')">
                     <img src="../assets/images/users.png" alt="">
-                    <h4 class="navTitle">Articles</h4>
+                    <h4 class="navTitle"  id="articles">Articles</h4>
                 </div>
-                <div class="navItem" style="display: flex; flex-direction: row;"onclick="REVEALDOM()">
+                <div class="navItem" id="backButton"  onclick="REVEALDOM()">
                     <h4 class="navTitle">Back</h4>
                     <img src="../assets/images/back.png" alt="">
 
@@ -513,6 +513,42 @@
         console.log(Number(counter));
         document.getElementById(contentID).style.display = "block";
         console.log(`Trying to reveal ${contentID}`);
+
+        switch (contentID){
+            case `col2`:
+                document.querySelector(`#dashboard`).style.color = "#fff";
+                document.querySelector(`#dashboard`).style.paddingRight = "20px";
+                document.querySelector(`#dashboard`).style.borderRight = "#D70046 4px solid";
+                document.querySelector(`#users`).style.borderRight = "none";
+                document.querySelector(`#articles`).style.borderRight = "none";
+                document.querySelector(`#users`).style.color = "#999";
+                document.querySelector(`#articles`).style.color = "#999";
+                break;
+            case `usersTab`: 
+            document.querySelector(`#users`).style.color = "#fff";
+            document.querySelector(`#dashboard`).style.borderRight = "none";
+                document.querySelector(`#articles`).style.borderRight = "none";
+            document.querySelector(`#users`).style.paddingRight = "20px";
+                document.querySelector(`#users`).style.borderRight = "#D70046 4px solid";
+            document.querySelector(`#articles`).style.color = "#999";
+            document.querySelector(`#dashboard`).style.color = "#999";
+
+                break;
+            case `Articles`: 
+            document.querySelector(`#articles`).style.color = "#fff";
+            document.querySelector(`#users`).style.borderRight = "none";
+                document.querySelector(`#dashboard`).style.borderRight = "none";
+            document.querySelector(`#articles`).style.paddingRight = "20px";
+                document.querySelector(`#articles`).style.borderRight = "#D70046 4px solid";
+            document.querySelector(`#dashboard`).style.color = "#999";
+            document.querySelector(`#users`).style.color = "#999";
+
+
+                break;
+
+        }
+
+
     }
     function displayInformation(IMAGESOURCE,NAME,LOCATION,EMAIL,DATEJOOINED){
         var imageSetter = document.getElementById(`profile`);

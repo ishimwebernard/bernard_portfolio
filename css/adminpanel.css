@@ -72,11 +72,19 @@ body{
 
 .col1 .navigation .navItem:nth-child(4) h4{
     color: #D70046;}
-.col1 .navigation .navItem:nth-child(1) h4{
-    color: #fff;
-}
+
 .col2{
     margin-left: 3rem;
+    animation-name: mmm;
+    animation-duration: .777777777s;
+}
+@keyframes mmm{
+    from{margin-top: 100px;}
+    to{margin-top: 0px;}
+}
+
+.col1 .navigation #backbutton{
+    display: none;
 }
 .col2 .col2Title{
     color: #D70046;
@@ -569,19 +577,23 @@ body{
     }
     .col2 .graphs .chart:nth-child(2){
         margin-top: 1rem;;
-        margin-left: 0rem;
-        
+        margin-left: 0rem;    
       }
       .col2 .hdcnt .mobileNavigationButton{
         display: block;
     }
     .col1 .navigation .navItem:nth-child(4){
-        display: block;
+        display: flex;
+        flex-direction: row;
      }
      
-    .col1 .navigation .navItem:nth-child(4) #backbutton{
-        display: block;
+    .col1 .navigation  #backbutton{
+        display: none;
+        flex-direction: row;
     }
+
+
+
 
       .col2 .stats .statItem .statdesc h3{
           font-size: 15px;
@@ -600,5 +612,39 @@ body{
         display: flex;
         flex-direction: row;
     }
+    #usersTab .newSexion{
+        display: flex;
+        flex-direction: column;
+    }
+    #usersTab .newSexion .singleUserInfo .basInfo .tt{
+        margin-left: 5px;
+    }
+    #usersTab .newSexion .singleUserInfo .profile {
+        width: 150px;
+        height: 150px;
+    }
+    #Articles .presentArticle .board{
+        display: flex;
+        flex-direction: column;
+    }
+    #Articles .presentArticle .board .plotcard{
+        margin-top: 10px;
+    }
+    #Articles .presentArticle .board .plotcard:nth-child(2){
+        margin-left: 0px;
+    }
+    #Articles .presentArticle .board .plotcard:nth-child(3){
+        margin-left: 0px;
+    }
+    #usersTab .usersDisplayer .user {
+        width: 100%;
+        margin-left: 0;
+    }
+    #usersTab .usersDisplayer{
+        width: 100%;
+        margin-left: 0;
+    }
+
+    
    
 }
