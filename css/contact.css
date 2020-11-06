@@ -207,8 +207,8 @@ ul{
 }
 .row3 .form .sect2 .searchButton{
 	text-align: center;
-	background: #D70046;
-	padding-top: .5rem;
+	background: #515151;
+	padding-top: .2rem;
 	height: 2.175rem;
 	cursor: pointer;
 	display: grid;
@@ -221,6 +221,7 @@ ul{
 	border-radius: 0.625rem;
 	font-weight: 700;
 	font-size: 1.5rem;
+	border: none;
  
 }
 .row4 h2{
