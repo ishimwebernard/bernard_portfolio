@@ -62,7 +62,13 @@ body{
 	text-align: center;
 	display: none;
 	float: right;
+	animation-name: gclone;
+	animation-duration: 1s;
 
+}
+@keyframes gclone{
+	from{width:0%;}
+	to{width: 100%;}
 }
 
 .row1 .mavigationBarMobile ul li{
