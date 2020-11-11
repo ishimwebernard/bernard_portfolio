@@ -284,7 +284,81 @@ ul{
 	from{margin-top: 3.25rem;}
 	to{margin-top: 6.25rem;}
 }
-@media only screen and (max-width: 480px){
+
+@media only screen and (min-width: 1030px) and (max-width: 1364px){
+	
+	.row1{
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+	}
+
+	.row1 .mobileNavigation .line{
+		height: 0.225rem;
+		width: 2.25rem;
+		background: #000;
+		margin-top: 0.125rem;
+	}
+
+	.row1 .nav{
+		display: flex;
+		flex-direction: row;
+		margin-left: 0rem;
+	}
+}
+@media only screen and (min-width: 550px) and (max-width: 1029px){
+	.content{
+		margin: 1rem 3rem 1rem 1rem;
+		font-size: 15px;
+	}
+	
+	.row1 .mobileNavigation{
+		display: block;
+		cursor: pointer;
+		margin-left: 20rem;
+	}
+	
+	.row1 .mobileNavigation .line{
+		height: 0.225rem;
+		width: 2.25rem;
+		background: #000;
+		margin-top: 0.125rem;
+	}
+
+	.row1 .nav{
+		display: none;
+	}
+	.row2 .plotcard{
+		width: 100%;
+		margin-top: 1rem;
+		display: flex;
+		flex-direction: row;
+		height: 170px;
+	}
+	.row2 .newsplot{
+		display: flex;
+		flex-direction: column;
+	}
+	.row2 .plotcard img{
+		height: 100%;
+		width: 40%;
+	}
+	.row2 .searchGroup input{
+		font-size: 18px;
+		background-image: none;
+		margin: 0;
+		padding-left: 10px;
+	
+
+	}
+	.row2 .searchGroup .searchButton p{
+		font-size: 20px;
+		width: 100%;
+		text-align: center;
+		padding-top: 12.5px;
+	}
+
+}
+@media screen and (min-width: 321px) and (max-width: 549px){
 	.content{
 		margin: 1rem 3rem 1rem 1rem;
 		font-size: 15px;
@@ -302,38 +376,78 @@ ul{
 	}
 	.row1 .mobileNavigation{
 		float: right;
-		margin-left: calc(100%);
+		margin-left: 10rem;
+
 	}
 	.row1 .nav{
 		display: none;
 	}
-	.row2 .searchGroup .searchButton{
-		height: 95%;
-		
-		margin-left: 0rem;
-		margin-top: 0rem;
-		}
-	.row2 .searchGroup .searchButton p{
-		font-size: 1.5625rem;
-		height: 3.3rem;
-		padding-top: .75rem;
-	}
-	.row2 .searchGroup input{
-		font-size: 1.375rem;
-	}
-	.row2 .searchGroup{
-		height: 3.3125rem;
-		width: 110%;
-	}
 	.row2 .newsplot{
-		
 		display: flex;
 		flex-direction: column;
 	}
-	.row2 .newsplot .plotcard{
-		
-		margin-top: 1rem;
+	
+	.row2 .searchGroup input{
+		font-size: 18px;
+		background-image: none;
+		margin: 0;
+		padding-left: 10px;
+	
 
 	}
-	
+	.row2 .searchGroup .searchButton p{
+		font-size: 20px;
+		width: 100%;
+		text-align: center;
+		padding-top: 12.5px;
+	}
+
+
 }
+@media screen and (min-width: 0px) and (max-width: 320px){
+	.content{
+		margin: 1rem 3rem 1rem 1rem;
+		font-size: 15px;
+	}
+	.row1 .mobileNavigation{
+		display: block;
+		cursor: pointer;
+	}
+	
+	.row1 .mobileNavigation .line{
+		height: 0.225rem;
+		width: 2.25rem;
+		background: #000;
+		margin-top: 0.125rem;
+	}
+	.row1 .mobileNavigation{
+		float: right;
+		margin-left: 8rem;
+
+	}
+	.row1 .nav{
+		display: none;
+	}
+	.row2 .newsplot{
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
