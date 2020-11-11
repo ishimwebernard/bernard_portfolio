@@ -239,7 +239,7 @@ ul{
 	margin-left: 0.625rem;
 
 }
-@media only screen and (max-width: 480px){
+@media only screen and (max-width: 1300px){
 	.content{
 		margin: 1rem 3rem 1rem 1rem;
 	}
@@ -271,4 +271,24 @@ ul{
 
 
 
+}
+@media screen and (min-width: 0px) and (max-width: 320px){
+	.row1 .mobileNavigation{
+		display: block;
+		cursor: pointer;
+	}
+	.row1 .mobileNavigation .line{
+		height: 0.225rem;
+		width: 2.25rem;
+		background: #000;
+		margin-top: 0.125rem;
+	}
+	.row1 .mobileNavigation{
+		float: right;
+		margin-left: 8rem;
+
+	}
+	.row1 .nav{
+		display: none;
+	}
 }
