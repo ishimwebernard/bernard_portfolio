@@ -41,7 +41,7 @@
                 </ul>
             </div>
         </div>
-        <div class="row2">
+        <div class="row2" id="row2">
             <h1 class="row2header">Get <span id="s1">Updates</span> on <span id="s2">Time</span></h1>
             <div class="searchGroup">
                 <input class="search" type="text" placeholder="Enter your Keywords">
@@ -51,7 +51,8 @@
             <div class="feed">
                 <h1 class="f"><span>F</span>eed</h2>
             </div>
-            <div class="newsplot" id="one">
+           <div class="fd" id="fd">
+        <div class="newsplot" id="one">
                 <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
                     <img src="../assets/images/iwon.png" alt="I won the prize">
                     <div class="dd">
@@ -78,10 +79,12 @@
                 </div>
                 
             </div>
+           </div>
             <div class="feed">
                 <h1 class="f"><span>A</span>rticles</h2>
             </div>
-            <div class="newsplot" id="one">
+           <div class="newsarea" id="newsarea">
+            <!--<div class="newsplot" id="one">
                 <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
                     <img src="../assets/images/iwon.png" alt="I won the prize">
                     <div class="dd">
@@ -107,7 +110,8 @@
                         </div>
                 </div>
                 
-            </div>
+            </div>-->
+           </div>
         </div>
         <div class="footer">
             <h2 class="footer__title">Let's connect</h2>
@@ -122,5 +126,145 @@
             </div>
         </div>
        </div>
+       <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyCpi2f0eCI7LNdndXxsQPi6xEYPqdtzavE",
+      authDomain: "portfoliocapstone-1fd25.firebaseapp.com",
+      databaseURL: "https://portfoliocapstone-1fd25.firebaseio.com",
+      projectId: "portfoliocapstone-1fd25",
+      storageBucket: "portfoliocapstone-1fd25.appspot.com",
+      messagingSenderId: "1080588359943",
+      appId: "1:1080588359943:web:9aaea2900baf559b08cda2",
+      measurementId: "G-RDPBQ88C5C"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    var db = firebase.firestore();
+    var blogs = [];
+   
+
+
+    function populateBlogArea(){
+       
+        var db = firebase.firestore();
+    var parent = document.getElementById("fd");
+    var data = db.collection("news");
+    db.collection("news").get().then((querySnapShot)=>{
+        //console.log(querySnapShot);
+        querySnapShot.forEach((blog)=>{
+            //console.log(blog.data());
+           // console.log(blog.data().image);
+            blogs.push(blog.data());
+            //console.log(blogs.length);
+        });
+        console.log(blogs.length);
+        TRANSLATE_CLUSTERS(blogs);
+    });
+    
+    //console.log(blogs.length());
+  
+}
+
+function TRANSLATE_CLUSTERS(NEWS_ARRAY){
+    //NEWS_ARRAY.length = 5;
+    console.log(`Status of the Function`);
+    console.log(NEWS_ARRAY[0]);
+    console.log(NEWS_ARRAY);
+    var NEWS_AREA = document.getElementById("newsarea");
+
+    var BLOCKS = (NEWS_ARRAY.length - (NEWS_ARRAY.length%3))/3;
+
+    var i = 0;
+    var j = 0;
+
+    console.log(NEWS_ARRAY.length);
+    //if(NEWS_ARRAY.length>3){
+        
+    for(i = 0; i< (BLOCKS*3); i+=3){
+        NEWS_AREA.innerHTML += `
+        <div class="newsplot" id="one">
+                <div class="plotcard" id="iwon">
+                    <img src="${NEWS_ARRAY[i].image}" alt="I won the prize">
+                    <div class="dd">
+                      
+                        <h3 class="header">${NEWS_ARRAY[i].title}</h3>
+                        <p class="content">${NEWS_ARRAY[i].content}</p>
+                        </div>
+                </div>
+                <div class="plotcard" id="iwon">
+                    <img src="${NEWS_ARRAY[i+1].image}" alt="I won the prize">
+                    <div class="dd">
+                      
+                        <h3 class="header">${NEWS_ARRAY[i+1].title}</h3>
+                        <p class="content">${NEWS_ARRAY[i+1].content}</p>
+                        </div>
+                </div>
+                <div class="plotcard" id="iwon" >
+                    <img src="${NEWS_ARRAY[i+2].image}" alt="I won the prize">
+                    <div class="dd">
+                      
+                        <h3 class="header">${NEWS_ARRAY[i+2].title}</h3>
+                        <p class="content">${NEWS_ARRAY[i+2].content}</p>
+                        </div>
+                </div>
+                
+            </div>
+        
+        `;
+    }
+   
+        var newItems;
+    console.log(`Remaining Items are ${NEWS_ARRAY.length - BLOCKS*3}`);
+    for(j = 0;j<(NEWS_ARRAY.length - BLOCKS*3); j++){
+        console.log(NEWS_ARRAY[(BLOCKS*3)+j].title);
+        if(NEWS_ARRAY[(BLOCKS*3)+j].title !== undefined){
+            newItems += `
+        <div class="plotcard" id="iwon" >
+                    <img src="${NEWS_ARRAY[(BLOCKS*3)+j].image}" alt="I won the prize">
+                    <div class="dd">
+                      
+                        <h3 class="header">${NEWS_ARRAY[(BLOCKS*3)+j].title}</h3>
+                        <p class="content">${NEWS_ARRAY[(BLOCKS*3)+j].content}</p>
+                        </div>
+                </div>`;
+        }
+       
+
+        
+    }
+    console.log(newItems);
+    NEWS_AREA.innerHTML += `<div class="newsplot" id="one">
+            ${newItems.replace(`undefined`,``)}
+           </div> 
+        `;
+    
+
+    //}else{
+     //   console.log(`Very Few Data`);
+    //}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+populateBlogArea();
+</script>
     </body>
 </html>
