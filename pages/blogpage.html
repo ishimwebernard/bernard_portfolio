@@ -41,6 +41,25 @@
                 </ul>
             </div>
         </div>
+        <div class="singeBlog" id="singeBlog">
+            <div class="imageandtitle">
+                <img src="../assets/images/realCode.png" id="imageHolder" alt="">
+                <h1 id="ctitle">I won the app development award</h1>
+            </div>    
+          <div class="textCont">
+              <div class="verticalLine"> </div>
+            <p class="actualcontent" id="actualcontent">
+                In the face of lower-than-expected grades, it’s only human to react by feeling disappointed with oneself. When you’re frequently receiving lower grades than you’d hoped for, you may start to feel depressed or defeated, and feel like giving up.
+                 The first step on the road to improving your grades is to turn this negativity on its head. You need to be positive about the situation if you’re to stand a chance of improving it.
+
+                <br><br>
+                  Acknowledge that your grades aren’t what you’re aiming for, but believe that you can do something about it. Start by mentally taking control of the situation: instead of thinking “I’m a failure”, think “I can and will do better than this.”
+                   Don’t give up – take positive steps towards achieving the improvement you’re more than capable of achieving.
+            </p>
+           
+          </div>
+          <div class="endline"> </div>
+        </div>
         <div class="row2" id="row2">
             <h1 class="row2header">Get <span id="s1">Updates</span> on <span id="s2">Time</span></h1>
             <div class="searchGroup">
@@ -53,7 +72,7 @@
             </div>
            <div class="fd" id="fd">
         <div class="newsplot" id="one">
-                <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                <div class="plotcard" id="iwon" onclick="pointOnBlog(this)">
                     <img src="../assets/images/iwon.png" alt="I won the prize">
                     <div class="dd">
                       
@@ -61,7 +80,7 @@
                         <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis eget congue. Aliquam non mauris non dui pulvinar bibendum ac eget nulla. Integer a metus sollicitudin, luctus nunc eu, posuere massa. </p>
                         </div>
                 </div>
-                <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                <div class="plotcard" id="iwon" onclick="pointOnBlog(this)">
                     <img src="../assets/images/code.png" alt="I won the prize">
                     <div class="dd">
                       
@@ -69,7 +88,7 @@
                     <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis eget congue. Aliquam non mauris non dui pulvinar bibendum ac eget nulla. Integer a metus sollicitudin, luctus nunc eu, posuere massa. </p>
                     </div>
                 </div>
-                <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                <div class="plotcard" id="iwon" onclick="pointOnBlog(this)">
                     <img src="../assets/images/mac.png" alt="I won the prize">
                     <div class="dd">
                       
@@ -191,28 +210,28 @@ function TRANSLATE_CLUSTERS(NEWS_ARRAY){
     for(i = 0; i< (BLOCKS*3); i+=3){
         NEWS_AREA.innerHTML += `
         <div class="newsplot" id="one">
-                <div class="plotcard" id="iwon">
+                <div class="plotcard" id="article${i}" onclick="pointOnBlog(this)">
                     <img src="${NEWS_ARRAY[i].image}" alt="I won the prize">
                     <div class="dd">
                       
                         <h3 class="header">${NEWS_ARRAY[i].title}</h3>
-                        <p class="content">${NEWS_ARRAY[i].content}</p>
+                        <p class="content">${String(NEWS_ARRAY[i].content).slice(0,100)} ...</p>
                         </div>
                 </div>
-                <div class="plotcard" id="iwon">
+                <div class="plotcard" id="article${i+1}" onclick="pointOnBlog(this)">
                     <img src="${NEWS_ARRAY[i+1].image}" alt="I won the prize">
                     <div class="dd">
                       
                         <h3 class="header">${NEWS_ARRAY[i+1].title}</h3>
-                        <p class="content">${NEWS_ARRAY[i+1].content}</p>
+                        <p class="content">${String(NEWS_ARRAY[i+1].content).slice(0,100)} ...</p>
                         </div>
                 </div>
-                <div class="plotcard" id="iwon" >
+                <div class="plotcard" id="article${i+2}" onclick="pointOnBlog(this)">
                     <img src="${NEWS_ARRAY[i+2].image}" alt="I won the prize">
                     <div class="dd">
                       
                         <h3 class="header">${NEWS_ARRAY[i+2].title}</h3>
-                        <p class="content">${NEWS_ARRAY[i+2].content}</p>
+                        <p class="content">${String(NEWS_ARRAY[i+2].content).slice(0,100)} ...</p>
                         </div>
                 </div>
                 
@@ -226,13 +245,14 @@ function TRANSLATE_CLUSTERS(NEWS_ARRAY){
     for(j = 0;j<(NEWS_ARRAY.length - BLOCKS*3); j++){
         console.log(NEWS_ARRAY[(BLOCKS*3)+j].title);
         if(NEWS_ARRAY[(BLOCKS*3)+j].title !== undefined){
+            var realIndex = (BLOCKS*3)+j;
             newItems += `
-        <div class="plotcard" id="iwon" >
+        <div class="plotcard" id="article${realIndex}" onclick="pointOnBlog(this)">
                     <img src="${NEWS_ARRAY[(BLOCKS*3)+j].image}" alt="I won the prize">
                     <div class="dd">
                       
                         <h3 class="header">${NEWS_ARRAY[(BLOCKS*3)+j].title}</h3>
-                        <p class="content">${NEWS_ARRAY[(BLOCKS*3)+j].content}</p>
+                        <p class="content">${String(NEWS_ARRAY[(BLOCKS*3)+j].content).slice(0,100)} ...</p>
                         </div>
                 </div>`;
         }
@@ -250,6 +270,36 @@ function TRANSLATE_CLUSTERS(NEWS_ARRAY){
     //}else{
      //   console.log(`Very Few Data`);
     //}
+}
+function pointOnBlog(EventClicked){
+    var realId = String(EventClicked.id).replace(`article`,``);
+    var singeBlog = document.getElementById("singeBlog");
+
+    console.log(realId);
+    console.log(blogs[0]);
+    singeBlog.innerHTML = `
+    <div class="imageandtitle">
+                <img src="${blogs[realId].image}" id="imageHolder" alt="">
+                <h1 id="ctitle">${blogs[realId].title}</h1>
+            </div>    
+          <div class="textCont">
+              <div class="verticalLine"> </div>
+            <p class="actualcontent" id="actualcontent">
+                ${blogs[realId].content}
+            </p>
+           
+          </div>
+          <div class="endline"> </div>
+    
+    `;
+    singeBlog.style.display = "block";
+
+
+    console.log(realId);
+    console.log(blogs.length);
+    singeBlog.scrollIntoView({ behavior: 'smooth', block: 'end'});
+
+
 }
 
 
