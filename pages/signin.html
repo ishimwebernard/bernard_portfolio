@@ -8,6 +8,9 @@
 </head>
 <body>
 	<script src="../js/functions.js"></script>
+	<div class="loader" id="loader">
+		<p>Processing ...</p>
+	</div>
     <div class="content">
         <div class="row1">
 			<div class="logo">
@@ -87,13 +90,16 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 function login(){
+	document.getElementById("loader").style.display = "block";
 	var email = document.getElementById(`signemail`).value;
 	var password = document.getElementById(`signpassword`).value;
 	firebase.auth().signInWithEmailAndPassword(email, password)
   .then((user) => {
+	document.getElementById("loader").style.display = "none";
     alert(`Succesfull Signed In`);
   })
   .catch((error) => {
+	document.getElementById("loader").style.display = "none";
     var errorCode = error.code;
     var errorMessage = error.message;
 	alert(errorMessage);
