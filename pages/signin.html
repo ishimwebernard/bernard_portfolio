@@ -52,11 +52,11 @@
 			</div>
 			<div class="col2">
 				<h2>Simplify your <br> interaction with <br> me</h2>
-				<p class="label">Username</p>
-				<input type="text">
+				<p class="label">Email</p>
+				<input type="text" id="signemail">
 				<p class="label">Password</p>
-				<input type="password"><br>
-				<button onclick="location.href=`../pages/user.html`" >Login</button><br><br>
+				<input type="password" id="signpassword"><br>
+				<button onclick="login()" >Login</button><br><br>
 				<div class="forgot">Forgot password <a href="../pages/resetpwd.html">Reset your password</a></div>
 				<div class="forgot"> Are you administrator, <a href="../pages/adminlogin.html">Login</a></div>
 				<div class="forgot">Don't have an account <a href="../pages/createaccount.html">Sign up</a>	</div>
@@ -64,6 +64,41 @@
 
 			</div>
 		</div>
-    </div>
+	</div>
+	<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyCpi2f0eCI7LNdndXxsQPi6xEYPqdtzavE",
+      authDomain: "portfoliocapstone-1fd25.firebaseapp.com",
+      databaseURL: "https://portfoliocapstone-1fd25.firebaseio.com",
+      projectId: "portfoliocapstone-1fd25",
+      storageBucket: "portfoliocapstone-1fd25.appspot.com",
+      messagingSenderId: "1080588359943",
+      appId: "1:1080588359943:web:9aaea2900baf559b08cda2",
+      measurementId: "G-RDPBQ88C5C"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+function login(){
+	var email = document.getElementById(`signemail`).value;
+	var password = document.getElementById(`signpassword`).value;
+	firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((user) => {
+    alert(`Succesfull Signed In`);
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+	alert(errorMessage);
+  });
+}
+</script>	
 </body>
 </html>
