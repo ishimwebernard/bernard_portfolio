@@ -3,7 +3,8 @@ const express = require('express');
 const router = express.Router();
 
 router.post("/", commentsController.saveComment);
-router.delete("/:postId", commentsController.deleteThisComment);
+router.delete("/:commentId", commentsController.deleteThisComment);
+router.get("/", commentsController.retrieveComment);
 
 module.exports = router;
 
