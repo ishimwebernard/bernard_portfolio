@@ -18,7 +18,7 @@ class Comment{
             });
         }
         static deleteThisComment = (request, response)=>{
-            Comments.remove({_id: request.params.postId}).then((data)=>{
+            Comments.remove({_id: request.params.commentId}).then((data)=>{
                 response.json(data);
             }).catch(error=>{
                 response.json({
@@ -39,8 +39,8 @@ class Comment{
                 })
             })
         }
-        static patchComment = (request, response)=>{
-            Comments.update({_id: request.params.postId},
+        static updateComment = (request, response)=>{
+            Comments.update({_id: request.params.commentID},
                 { $set: {title: request.body.title}}
                 ).then((data)=>{
                     response.json(data);

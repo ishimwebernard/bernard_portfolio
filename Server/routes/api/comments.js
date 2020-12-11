@@ -5,7 +5,7 @@ const router = express.Router();
 router.post("/", commentsController.saveComment);
 router.delete("/:commentId", commentsController.deleteThisComment);
 router.get("/", commentsController.retrieveComment);
-router.patch("/:commentId", commentsController.patchComment);
+router.patch("/:commentID", commentsController.updateComment);
 
 
 module.exports = router;
