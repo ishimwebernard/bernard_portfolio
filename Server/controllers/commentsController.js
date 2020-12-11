@@ -39,6 +39,19 @@ class Comment{
                 })
             })
         }
+        static patchComment = (request, response)=>{
+            Comments.update({_id: request.params.postId},
+                { $set: {title: request.body.title}}
+                ).then((data)=>{
+                    response.json(data);
+                }).catch(error=>{
+                    console.log(error);
+                    response.send(`Something went wrong`);
+                })
+        
+        }
+
+
 
 }
 module.exports = Comment;
