@@ -18,7 +18,7 @@ class Comment{
             });
         }
         static deleteThisComment = (request, response)=>{
-            Comments.remove({_id: request.params.postId}).then((data)=>{
+            Comments.remove({_id: request.params.commentId}).then((data)=>{
                 response.json(data);
             }).catch(error=>{
                 response.json({
