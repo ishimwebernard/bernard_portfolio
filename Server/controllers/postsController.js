@@ -8,36 +8,38 @@ class Post{
             description: request.body.description,
             imagesource: request.body.imagesource
         });
-        console.log(request);
         await toPost.save();
         response.json(toPost);  }  
 
 
         static retrieveAllPosts =  function(request, response){
-            console.log(`Retrieving Comments ...`);
             Posts.find().then(data=>{
                 response.json(data);
-                console.log("Data Succesfully retrieved");
             }).catch(error=>{
-                console.log(error);
-                response.send("Something went wrong");
+                response.json({
+                    status: error,
+                    message: "Failed to retrieve comments"
+                });
             })
         }
         static getOne = function(request,response){
             Posts.findById(request.params.postId).then(data=>{
                 response.json(data);
             }).catch(error=>{
-                console.log(error);
-                response.send(`Something went wrong`);
+                response.json({
+                    status: error,
+                    message: "Failed to retrieve comments"
+                });
             })
         }
         static deletePost = (request, response)=>{
             Posts.remove({_id: request.params.postId}).then((data)=>{
-                console.log(`Deleted ${data}`);
                 response.json(data);
             }).catch(error=>{
-                console.log(error);
-                response.send(`Something went wrong`);
+                response.json({
+                    status: error,
+                    message: "Failed to retrieve comments"
+                });
             })
         }
 }
