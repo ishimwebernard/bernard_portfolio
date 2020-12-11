@@ -8,7 +8,6 @@ class Post{
             description: request.body.description,
             imagesource: request.body.imagesource
         });
-        console.log(request);
         await toPost.save();
         response.json(toPost);  }  
 }
