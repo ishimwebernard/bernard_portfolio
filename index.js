@@ -27,6 +27,6 @@ mongoose.connect('mongodb+srv://bianca:bianca@cluster0.zgi7m.mongodb.net/sampled
 app.get("/", (request,response)=>{
     response.send(`We are on Home~~`);
 });
-app.listen(3000, ()=>{
-  console.log(`App is listening to 3000`);
+app.listen(process.env.PORT || 3000, ()=>{
+  console.log(`App is listening to A PORT`);
 });
