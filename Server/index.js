@@ -14,7 +14,7 @@ app.use(routes)
 
 require("dotenv/config");
 
-app.use(express.json({extended: false}));//Remove default config
+app.use(express.json({extended: false}));
 app.use(bodyParser.json());
 
 app.listen(3000, ()=>{

@@ -10,6 +10,7 @@ class Post{
         });
         await toPost.save();
         response.json(toPost);  }  
+
         static retrieveAllPosts =  function(request, response){
             Posts.find().then(data=>{
                 response.json(data);
@@ -20,5 +21,17 @@ class Post{
                 })
             })
         }
+
+        static getOne = function(request,response){
+            Posts.findById(request.params.postId).then(data=>{
+                response.json(data);
+            }).catch(error=>{
+                response.json({
+                    status: error,
+                    message: "Something went wrong"
+                })
+            })
+        }
+
 }
 module.exports = Post;
