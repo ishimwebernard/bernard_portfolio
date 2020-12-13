@@ -40,6 +40,31 @@ class Comment{
                 })
             })
         }
+        static patchComment = (request, response)=>{
+            Comments.update({_id: request.params.postId},
+                { $set: {title: request.body.title}}
+                ).then((data)=>{
+                    response.json(data);
+                }).catch(error=>{
+                    response.json({
+                        status: error,
+                        message: "Something is wrong"
+                    })
+                })
+        
+        }
+        static getSingleComment = (request,response)=>{
+    Comments.findById(request.params.commentId).then(data=>{
+        response.json(data);
+    }).catch(error=>{
+        response.json({
+            status: error,
+            message: "Something is wrong"
+        })
+    })
+}
+
+
 
 }
 module.exports = Comment;
