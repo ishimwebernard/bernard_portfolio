@@ -15,11 +15,19 @@ class Post{
         static retrieveAllPosts =  function(request, response){
             Posts.find().then(data=>{
                 response.json(data);
+                console.log("Data Succesfully retrieved");
+            }).catch(error=>{
+                console.log(error);
+                response.send("Something went wrong");
+
+            Posts.find().then(data=>{
+                response.json(data);
             }).catch(error=>{
                 response.json({
                     status: error,
                     message: "Failed to retrieve comments"
                 });
+
             })
         }
         static getOne = function(request,response){
@@ -36,11 +44,23 @@ class Post{
             Posts.remove({_id: request.params.postId}).then((data)=>{
                 response.json(data);
             }).catch(error=>{
-                response.json({
+                   response.json({
                     status: error,
                     message: "Failed to delete comments"
                 });
             })
+        }
+        static patchPost = (request, response)=>{
+          Posts.update({_id: request.params.postId},
+        { $set: {title: request.body.title}}
+        ).then((data)=>{
+            response.json(data);
+        }).catch(error=>{
+            response.json({
+                status: error,
+                message: "Something went wrong"
+            })
+        })
         }
 }
 module.exports = Post;
