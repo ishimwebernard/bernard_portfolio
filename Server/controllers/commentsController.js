@@ -42,6 +42,8 @@ class Comment{
         }
         static patchComment = (request, response)=>{
             Comments.update({_id: request.params.postId},
+        static updateComment = (request, response)=>{
+            Comments.update({_id: request.params.commentID},
                 { $set: {title: request.body.title}}
                 ).then((data)=>{
                     response.json(data);
@@ -63,6 +65,11 @@ class Comment{
         })
     })
 }
+                    console.log(error);
+                    response.send(`Something went wrong`);
+                })
+        
+        }
 
 
 

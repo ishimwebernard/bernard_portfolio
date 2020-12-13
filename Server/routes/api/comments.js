@@ -7,6 +7,7 @@ router.delete("/:commentId", commentsController.deleteThisComment);
 router.get("/", commentsController.retrieveComment);
 router.patch("/:commentId", commentsController.patchComment);
 router.get("/:commentId", commentsController.getSingleComment);
+router.patch("/:commentID", commentsController.updateComment);
 
 
 module.exports = router;
