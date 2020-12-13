@@ -11,7 +11,6 @@ class Post{
         await toPost.save();
         response.json(toPost);  }  
 
-
         static retrieveAllPosts =  function(request, response){
             Posts.find().then(data=>{
                 response.json(data);
@@ -62,5 +61,6 @@ class Post{
             })
         })
         }
+
 }
 module.exports = Post;

@@ -8,6 +8,8 @@ const connectoToMongo = function(){
         { useUnifiedTopology: true,useNewUrlParser: true }).then(()=>{
         
         }).catch(error=>{
+
+        }).catch(error=>{
               
         }).catch(error=>{
   
