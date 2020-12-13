@@ -38,7 +38,7 @@ class Post{
             }).catch(error=>{
                 response.json({
                     status: error,
-                    message: "Failed to retrieve comments"
+                    message: "Failed to delete comments"
                 });
             })
         }
