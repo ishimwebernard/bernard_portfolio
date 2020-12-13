@@ -27,7 +27,7 @@ class Comment{
                 message: 'Something went wrong'
                 })
             })
-        }
+        })}
         static retrieveComment = (request, response)=>{
             
             Comments.find().then(data=>{
@@ -40,8 +40,7 @@ class Comment{
                 })
             })
         }
-        static patchComment = (request, response)=>{
-            Comments.update({_id: request.params.postId},
+
         static updateComment = (request, response)=>{
             Comments.update({_id: request.params.commentID},
                 { $set: {title: request.body.title}}
@@ -56,22 +55,14 @@ class Comment{
         
         }
         static getSingleComment = (request,response)=>{
-    Comments.findById(request.params.commentId).then(data=>{
-        response.json(data);
-    }).catch(error=>{
-        response.json({
-            status: error,
-            message: "Something is wrong"
-        })
-    })
-}
-                    console.log(error);
-                    response.send(`Something went wrong`);
+            Comments.findById(request.params.commentId).then(data=>{
+                response.json(data);
+            }).catch(error=>{
+                response.json({
+                    status: error,
+                    message: "Something is wrong"
                 })
-        
-        }
-
-
-
+            })}
 }
+
 module.exports = Comment;
