@@ -8,7 +8,9 @@ const connectoToMongo = function(){
         { useUnifiedTopology: true,useNewUrlParser: true }).then(()=>{
                 
         }).catch(error=>{
-                
+        
+        }).catch(error=>{
+
         });
 }
 module.exports = connectoToMongo;

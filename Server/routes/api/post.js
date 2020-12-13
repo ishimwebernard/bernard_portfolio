@@ -5,6 +5,7 @@ const router = express.Router();
 router.post("/", postsController.savePost);
 router.get("/", postsController.retrieveAllPosts);
 router.get("/:postId", postsController.getOne);
+
 module.exports = router;
 
 
