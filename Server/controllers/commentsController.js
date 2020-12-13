@@ -17,5 +17,28 @@ class Comment{
                 })
             });
         }
+        static deleteThisComment = (request, response)=>{
+            Comments.remove({_id: request.params.postId}).then((data)=>{
+                response.json(data);
+            }).catch(error=>{
+                response.json({
+                    status: error,
+                message: 'Something went wrong'
+                })
+            })
+        }
+        static retrieveComment = (request, response)=>{
+            
+            Comments.find().then(data=>{
+                response.json(data);
+            }).catch(error=>{
+                response.json({
+                    status: error,
+                message: 'Something went wrong'
+                
+                })
+            })
+        }
+
 }
 module.exports = Comment;
