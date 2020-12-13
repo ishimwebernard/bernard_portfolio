@@ -7,12 +7,14 @@ const connectoToMongo = function(){
 
         { useUnifiedTopology: true,useNewUrlParser: true }).then(()=>{
         
-        console.log(`Succesfully connected`);
-        
         }).catch(error=>{
-        
-        console.log(String(error.message));
-        
+
+        }).catch(error=>{
+              
+        }).catch(error=>{
+  
+        }).catch(error=>{
+
         });
 }
 module.exports = connectoToMongo;
