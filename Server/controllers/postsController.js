@@ -11,27 +11,36 @@ class Post{
         await toPost.save();
         response.json(toPost);  }  
 
+
         static retrieveAllPosts =  function(request, response){
             Posts.find().then(data=>{
                 response.json(data);
             }).catch(error=>{
                 response.json({
                     status: error,
-                    message: "Something went wrong"
-                })
+                    message: "Failed to retrieve comments"
+                });
             })
         }
-
         static getOne = function(request,response){
             Posts.findById(request.params.postId).then(data=>{
                 response.json(data);
             }).catch(error=>{
                 response.json({
                     status: error,
-                    message: "Something went wrong"
-                })
+                    message: "Failed to retrieve comments"
+                });
             })
         }
-
+        static deletePost = (request, response)=>{
+            Posts.remove({_id: request.params.postId}).then((data)=>{
+                response.json(data);
+            }).catch(error=>{
+                response.json({
+                    status: error,
+                    message: "Failed to delete comments"
+                });
+            })
+        }
 }
 module.exports = Post;

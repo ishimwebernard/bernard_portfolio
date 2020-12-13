@@ -10,6 +10,15 @@ app.use(bodyParser.json());
 
 connectoToMongo();
 
+app.use(routes);
+
+require("dotenv/config");
+
+app.use(express.json({extended: false}));
+app.use(bodyParser.json());
+
+connectoToMongo();
+
 app.use(routes)
 
 require("dotenv/config");
