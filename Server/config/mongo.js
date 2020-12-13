@@ -15,6 +15,12 @@ const connectoToMongo = function(){
   
         }).catch(error=>{
 
+        console.log(`Succesfully connected`);
+        
+        }).catch(error=>{
+        
+        console.log(String(error.message));
+        
         });
 }
 module.exports = connectoToMongo;

@@ -20,6 +20,17 @@ class Post{
                 response.send("Something went wrong");
 
         })};
+
+        static retrieveAllPosts =  function(request, response){
+            Posts.find().then(data=>{
+                response.json(data);
+            }).catch(error=>{
+                response.json({
+                    status: error,
+                    message: "Something went wrong"
+                });
+            })
+        }
         static getOne = function(request,response){
             Posts.findById(request.params.postId).then(data=>{
                 response.json(data);
@@ -27,6 +38,7 @@ class Post{
                 response.json({
                     status: error,
                     message: "Failed to retrieve comments"
+                    message: "Something went wrong"
                 });
             })
         }
@@ -37,6 +49,9 @@ class Post{
                    response.json({
                     status: error,
                     message: "Failed to delete comments"
+                response.json({
+                    status: error,
+                    message: "Something went wrong"
                 });
             })
         }
@@ -53,5 +68,17 @@ class Post{
         })
         }
 
+            Posts.update({_id: request.params.postId},
+                { $set: {title: request.body.title}}
+                ).then((data)=>{
+                    response.json(data);
+                }).catch(error=>{
+                    response.json({
+                        status: error,
+                        message: "Something went wrong"
+                    });
+                })
+        
+        }
 }
 module.exports = Post;
