@@ -150,7 +150,7 @@ grid-template-columns: 1fr 1.5fr ;
 height: 34rem;
 }
 .row2 .col1{
-	background-image: url("../images/introducer.png");
+	background-image: url("../assets/images/introducer.png");
 	background-repeat: no-repeat;
 	height: 100%;
 	padding: 2rem;
@@ -216,7 +216,6 @@ height: 34rem;
  }
  .row1 .logedInCredentials .profilePicture{
 	 border-radius: 50%;
-	 background-image: url("../assets/bernardIshimwe.png");
 	 background-repeat: no-repeat;
 	 background-size: cover;
 	 height: 5rem;
