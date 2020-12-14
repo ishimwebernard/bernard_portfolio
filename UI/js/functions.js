@@ -26,3 +26,10 @@ function REVEALDOM(){
         myDoc.style.display = `none`;
     }
 }
+function checkAdmin(){
+    var passwordView = document.getElementById('pwd');
+    var pwdString = String(passwordView.value);
+    if(pwdString =='admin'){
+        location.href=`adminpanel.html`;
+    }
+}
