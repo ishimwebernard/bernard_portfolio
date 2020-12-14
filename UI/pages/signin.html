@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/signin.css">
+    <title>Sign In </title>
+</head>
+<body>
+	<script src="../js/functions.js"></script>
+	<div class="loader" id="loader">
+		<p>Processing ...</p>
+	</div>
+    <div class="content">
+        <div class="row1">
+			<div class="logo">
+				<div class="ishimwe">ISHIMWE</div>
+				<div class="bernard">BERNARD</div>
+			</div>
+			<div class="nav">
+			<ul>
+				<li><a href="../kindex.html">HOME</a></li>
+				<li><a href="about.html">ABOUT</a></li>
+				<li><a href="blogpage.html">BLOG PAGE</a></li>
+				<li><a href="contact.html">CONTACT ME</a></li>
+			</ul>
+				
+			</div>	
+			<div class="logedInCredentials">
+				<div class="profilePicture" role="img"></div>
+			</div>
+			<div id="mobileNavigation" class="mobileNavigation" onclick="REVEALDOM(`mavigationBarMobile`,`mobileNavigation`)">
+				<div class="line"></div>
+				<div class="line"></div>
+				<div class="line"></div>
+			</div>
+			<div class="mavigationBarMobile" id="mavigationBarMobile">
+				<ul>
+					<li><a href="../kindex.html">HOME</a></li>
+				<li><a href="about.html">ABOUT</a></li>
+				<li><a href="blogpage.html">BLOG PAGE</a></li>
+				<li><a href="contact.html">CONTACT ME</a></li>
+				<li><a href="signin.html">Sign In</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row2">
+			<div class="col1">
+				<h3 class="title">Log In</h3>
+				<ul>
+					<li>Get faster <span>Updates</span> </li>
+					<li>Get <span>discounts</span> for your orders</li>
+					<li>Stay <span>updated</span> about me</li>
+				</ul>
+			</div>
+			<div class="col2">
+				<h2>Simplify your <br> interaction with <br> me</h2>
+				<p class="label">Email</p>
+				<input type="text" id="signemail">
+				<p class="label">Password</p>
+				<input type="password" id="signpassword"><br>
+				<button onclick="login()" >Login</button><br><br>
+				<div class="forgot">Forgot password <a href="../pages/resetpwd.html">Reset your password</a></div>
+				<div class="forgot"> Are you administrator, <a href="../pages/adminlogin.html">Login</a></div>
+				<div class="forgot">Don't have an account <a href="../pages/createaccount.html">Sign up</a>	</div>
+
+
+			</div>
+		</div>
+	</div>
+	<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyCpi2f0eCI7LNdndXxsQPi6xEYPqdtzavE",
+      authDomain: "portfoliocapstone-1fd25.firebaseapp.com",
+      databaseURL: "https://portfoliocapstone-1fd25.firebaseio.com",
+      projectId: "portfoliocapstone-1fd25",
+      storageBucket: "portfoliocapstone-1fd25.appspot.com",
+      messagingSenderId: "1080588359943",
+      appId: "1:1080588359943:web:9aaea2900baf559b08cda2",
+      measurementId: "G-RDPBQ88C5C"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+function login(){
+	document.getElementById("loader").style.display = "block";
+	var email = document.getElementById(`signemail`).value;
+	var password = document.getElementById(`signpassword`).value;
+	firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((user) => {
+	document.getElementById("loader").style.display = "none";
+    alert(`Succesfull Signed In`);
+  })
+  .catch((error) => {
+	document.getElementById("loader").style.display = "none";
+    var errorCode = error.code;
+    var errorMessage = error.message;
+	alert(errorMessage);
+  });
+}
+</script>	
+</body>
+</html>
