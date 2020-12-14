@@ -5,6 +5,4 @@ function REVEALDOM(){
     }else{
         myDoc.style.display = `none`;
     }
-
-
 }
