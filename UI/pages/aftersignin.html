@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/aftersignin.css">
+        <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    </head>
+    <body>
+       <div class="content">
+        <div class="loader" id="loader">
+            <p>Processing ...</p>
+        </div>
+        <div class="row1">
+            <div class="logo">
+                <div class="ishimwe">ISHIMWE</div>
+                <div class="bernard">BERNARD</div>
+            </div>
+            <div class="nav">
+			<ul id="normalNavigation">
+				<li>Home</li>
+				<li>About </li>
+				<li>Blog Page</li>
+				<li>Contact me</li>
+			</ul>	
+			<div class="profiler" id="profileSection">
+				<div class="profilePicture" role="img" onclick="revealMenu()"></div>
+				<div class="profileOption" id="profileOption">
+					<p onclick="logout()">Logout</p>
+					<p onclick="revealSettings()">Settings</p>
+					<p onclick="revealMenu()">Close this menu</p>
+				</div>
+            </div>
+            <div class="singeBlog" id="singeBlog">
+                <div class="imageandtitle">
+                    <img src="../assets/images/realCode.png" id="imageHolder" alt="">
+                    <h1 id="ctitle">I won the app development award</h1>
+                </div>    
+              <div class="textCont">
+                  <div class="verticalLine"> </div>
+                <p class="actualcontent" id="actualcontent">
+                    In the face of lower-than-expected grades, it’s only human to react by feeling disappointed with oneself. When you’re frequently receiving lower grades than you’d hoped for, you may start to feel depressed or defeated, and feel like giving up.
+                     The first step on the road to improving your grades is to turn this negativity on its head. You need to be positive about the situation if you’re to stand a chance of improving it.
+    
+                    <br><br>
+                      Acknowledge that your grades aren’t what you’re aiming for, but believe that you can do something about it. Start by mentally taking control of the situation: instead of thinking “I’m a failure”, think “I can and will do better than this.”
+                       Don’t give up – take positive steps towards achieving the improvement you’re more than capable of achieving.
+                </p>
+               
+              </div>
+              <div class="endline"> </div>
+            </div>
+		
+
+       
+            </div>	
+            <div id="mobileNavigation" class="mobileNavigation" onclick="REVEALDOM(`mavigationBarMobile`,`mobileNavigation`)">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="mavigationBarMobile" id="mavigationBarMobile">
+                <ul>
+                    <li><a href="../kindex.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blogpage.html">Blog Page</a></li>
+                    <li><a href="contact.html">Contact Me</a></li>
+                    <li><a href="signin.html">Sign In</a></li>
+                    <li><a onclick="REVEALDOM()" id="back">Back</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="filler" id="filler" onclick="revealSettings()"> </div>
+        <div class="settingsmenu" id="settingsmenu">
+            <div class="settingsheader">
+                <h2 class="header">Account Settings</h2>
+            </div>
+            <div class="profilepicturesectin">
+                <div class="profilePicture" role="img" aria-label="Profile Picture"></div>
+                <h2 class="username" id="username">ISHIMWE Bernard</h2>
+            </div>
+            <div class="box">
+                <p class="boxheader">Profile Picture</p>
+                <div class="line"></div>
+                <div class="linearcontent">
+                    <p class="desc">The photo to appear as you</p>
+                    <input type="file" name="" id="profilechooser" hidden>
+                <label for="profilechooser">Change</label>
+                </div>
+            </div>
+            <!-- <div class="box">
+                <p class="boxheader">Display Name</p>
+                <div class="line"></div>
+                <div class="linearcontent">
+                    <input type="text" id="uernamechange" placeholder="ISHIMWE Bernard" value="ISHIMWE Bernard">
+                <button id="save">Save</button>
+                </div>
+            </div> -->
+         
+           
+        </div>
+        <div class="row2">
+            <h1 class="row2header">Get <span id="s1">Updates</span> on <span id="s2">Time</span></h1>
+            <div class="searchGroup">
+                <input class="search" type="text" placeholder="Enter your Keywords">
+                <div class="searchButton"><p>Search</p></div>
+            </div>
+            <h3 class="header3">Recent search: <span>bernard</span>, <span>ishimwe</span>, <span>250</span></h3>
+            <!-- <div class="feed">
+                <h1 class="f"><span>F</span>eed</h2>
+            </div>
+            <div class="newsplot" id="one">
+                <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                    <img src="../assets/images/iwon.png" alt="I won the prize">
+                    <h3 class="header">I won the Africa App development award</h3>
+                    <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis eget congue. Aliquam non mauris non dui pulvinar bibendum ac eget nulla. Integer a metus sollicitudin, luctus nunc eu, posuere massa. </p>
+                </div>
+                <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                    <img src="../assets/images/code.png" alt="I won the prize">
+                    <h3 class="header">I won the Africa App development award</h3>
+                    <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis eget congue. Aliquam non mauris non dui pulvinar bibendum ac eget nulla. Integer a metus sollicitudin, luctus nunc eu, posuere massa. </p>
+                </div>
+                <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                    <img src="../assets/images/mac.png" alt="I won the prize">
+                    <h3 class="header">I won the Africa App development award</h3>
+                    <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis eget congue. Aliquam non mauris non dui pulvinar bibendum ac eget nulla. Integer a metus sollicitudin, luctus nunc eu, posuere massa. </p>
+                </div>
+                
+            </div> -->
+            <div class="feed">
+                <h1 class="f"><span>A</span>rticles and Feeds</h2>
+            </div>
+            <div class="newsarea" id="newsarea">
+            </div>
+        </div>
+        <div class="footer">
+            <h2 class="footer__title">Let's connect</h2>
+            <p class="footer-description">Feel free to reach out for collaborations or any advice</p>
+            <h3 class="footer-email">isbernard2001@gmail.com</h3>
+            <div class="socialIconsPack">
+                <img src="../assets/images/Facebook_black.png"/>
+                <img src="../assets/images/Github_black.png"/>
+                <img src="../assets/images/LinkedIN_black.png"/>
+                <img src="../assets/images/Twitter_black.png"/>
+                <img src="../assets/images/Gmail_black.png"/>
+            </div>
+        </div>
+       </div>
+       <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+       <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+          apiKey: "AIzaSyCpi2f0eCI7LNdndXxsQPi6xEYPqdtzavE",
+          authDomain: "portfoliocapstone-1fd25.firebaseapp.com",
+          databaseURL: "https://portfoliocapstone-1fd25.firebaseio.com",
+          projectId: "portfoliocapstone-1fd25",
+          storageBucket: "portfoliocapstone-1fd25.appspot.com",
+          messagingSenderId: "1080588359943",
+          appId: "1:1080588359943:web:9aaea2900baf559b08cda2",
+          measurementId: "G-RDPBQ88C5C"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        var db = firebase.firestore();
+    var blogs = [];
+
+
+
+
+
+
+
+    function populateBlogArea(){
+       
+       var db = firebase.firestore();
+   var parent = document.getElementById("fd");
+   var data = db.collection("news");
+   db.collection("news").get().then((querySnapShot)=>{
+       //console.log(querySnapShot);
+       querySnapShot.forEach((blog)=>{
+           //console.log(blog.data());
+          // console.log(blog.data().image);
+           blogs.push(blog.data());
+           //console.log(blogs.length);
+       });
+       console.log(blogs.length);
+       TRANSLATE_CLUSTERS(blogs);
+   });
+   
+   //console.log(blogs.length());
+ 
+}
+
+function TRANSLATE_CLUSTERS(NEWS_ARRAY){
+   //NEWS_ARRAY.length = 5;
+   console.log(`Status of the Function`);
+   console.log(NEWS_ARRAY[0]);
+   console.log(NEWS_ARRAY);
+   var NEWS_AREA = document.getElementById("newsarea");
+
+   var BLOCKS = (NEWS_ARRAY.length - (NEWS_ARRAY.length%3))/3;
+
+   var i = 0;
+   var j = 0;
+
+   console.log(NEWS_ARRAY.length);
+   //if(NEWS_ARRAY.length>3){
+       
+   for(i = 0; i< (BLOCKS*3); i+=3){
+       NEWS_AREA.innerHTML += `
+       <div class="newsplot" id="one">
+               <div class="plotcard" id="article${i}" onclick="pointOnBlog(this)">
+                   <img src="${NEWS_ARRAY[i].image}" alt="I won the prize">
+                   <div class="dd">
+                     
+                       <h3 class="header">${NEWS_ARRAY[i].title}</h3>
+                       <p class="content">${String(NEWS_ARRAY[i].content).slice(0,100)} ...</p>
+                       </div>
+               </div>
+               <div class="plotcard" id="article${i+1}" onclick="pointOnBlog(this)">
+                   <img src="${NEWS_ARRAY[i+1].image}" alt="I won the prize">
+                   <div class="dd">
+                     
+                       <h3 class="header">${NEWS_ARRAY[i+1].title}</h3>
+                       <p class="content">${String(NEWS_ARRAY[i+1].content).slice(0,100)} ...</p>
+                       </div>
+               </div>
+               <div class="plotcard" id="article${i+2}" onclick="pointOnBlog(this)">
+                   <img src="${NEWS_ARRAY[i+2].image}" alt="I won the prize">
+                   <div class="dd">
+                     
+                       <h3 class="header">${NEWS_ARRAY[i+2].title}</h3>
+                       <p class="content">${String(NEWS_ARRAY[i+2].content).slice(0,100)} ...</p>
+                       </div>
+               </div>
+               
+           </div>
+       
+       `;
+   }
+  
+       var newItems;
+   console.log(`Remaining Items are ${NEWS_ARRAY.length - BLOCKS*3}`);
+   for(j = 0;j<(NEWS_ARRAY.length - BLOCKS*3); j++){
+       console.log(NEWS_ARRAY[(BLOCKS*3)+j].title);
+       if(NEWS_ARRAY[(BLOCKS*3)+j].title !== undefined){
+           var realIndex = (BLOCKS*3)+j;
+           newItems += `
+       <div class="plotcard" id="article${realIndex}" onclick="pointOnBlog(this)">
+                   <img src="${NEWS_ARRAY[(BLOCKS*3)+j].image}" alt="I won the prize">
+                   <div class="dd">
+                     
+                       <h3 class="header">${NEWS_ARRAY[(BLOCKS*3)+j].title}</h3>
+                       <p class="content">${String(NEWS_ARRAY[(BLOCKS*3)+j].content).slice(0,100)} ...</p>
+                       </div>
+               </div>`;
+       }
+      
+
+       
+   }
+   console.log(newItems);
+   NEWS_AREA.innerHTML += `<div class="newsplot" id="one">
+           ${newItems.replace(`undefined`,``)}
+          </div> 
+       `;
+   
+
+   //}else{
+    //   console.log(`Very Few Data`);
+   //}
+}
+function pointOnBlog(EventClicked){
+   var realId = String(EventClicked.id).replace(`article`,``);
+   var singeBlog = document.getElementById("singeBlog");
+
+   console.log(realId);
+   console.log(blogs[0]);
+   singeBlog.innerHTML = `
+   <div class="imageandtitle">
+               <img src="${blogs[realId].image}" id="imageHolder" alt="">
+               <h1 id="ctitle">${blogs[realId].title}</h1>
+           </div>    
+         <div class="textCont">
+             <div class="verticalLine"> </div>
+           <p class="actualcontent" id="actualcontent">
+               ${blogs[realId].content}
+           </p>
+          
+         </div>
+         <div class="endline"> </div>
+   
+   `;
+   singeBlog.style.display = "block";
+
+
+   console.log(realId);
+   console.log(blogs.length);
+   singeBlog.scrollIntoView({ behavior: 'smooth', block: 'end'});
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+populateBlogArea();
+        </script>
+        <script src="../js/functions.js"></script>
+
+    </body>
+</html>

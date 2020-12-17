@@ -46,7 +46,7 @@
 		</div>
 		<div class="row2">
 			<div class="col1">
-				<h3 class="title">Log In</h3>
+				<h3 class="title">Create account</h3>
 				<ul>
 					<li>Get faster <span>Updates</span> </li>
 					<li>Get <span>discounts</span> for your orders</li>
@@ -54,12 +54,16 @@
 				</ul>
 			</div>
 			<div class="col2">
-				<h2>Simplify your <br> interaction with <br> me</h2>
+                <h2>Simplify your <br> interaction with <br> me</h2>
+                <p class="label">Full Name</p>
+				<input type="text" id="firstName">
 				<p class="label">Email</p>
-				<input type="text" id="signemail">
+				<input type="text" id="email">
 				<p class="label">Password</p>
-				<input type="password" id="signpassword"><br>
-				<button onclick="login()" >Login</button><br><br>
+                <input type="password" id="passwordOne"><br>
+                <p class="label">Verify Password</p>
+				<input type="password" id="passwordTwo"><br>
+				<button onclick="signUp()" >Create Account</button><br><br>
 				<div class="forgot">Forgot password <a href="../pages/resetpwd.html">Reset your password</a></div>
 				<div class="forgot"> Are you administrator, <a href="../pages/adminlogin.html">Login</a></div>
 				<div class="forgot">Don't have an account <a href="../pages/createaccount.html">Sign up</a>	</div>
@@ -89,6 +93,11 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
+    const db = firebase.firestore();
+    var userid="";
+
+
+
 function login(){
 	document.getElementById("loader").style.display = "block";
 	var email = document.getElementById(`signemail`).value;
@@ -105,6 +114,40 @@ function login(){
 	alert(errorMessage);
   });
 }
+
+
+  
+function signUp(){
+      var firstName = document.getElementById('firstName');
+      var email = document.getElementById('email');
+      var firstPassword = document.getElementById('passwordOne');
+      var secondPassword = document.getElementById('passwordTwo');
+
+    if(firstPassword.value != secondPassword.value){
+        alert('Passwords Dont match');
+    }else{
+            document.getElementById("loader").style.display = "block";
+            firebase.auth().createUserWithEmailAndPassword(String(email.value), String(firstPassword.value))
+            .then((user) => {
+                console.log(`Starting creation of a document`);
+                userid=user.user.uid;
+                db.collection('users').doc(user.user.uid).set({
+                   firstName: String(firstName.value),
+                   email: String(email.value),
+                   profilepic: ""
+               }).then((user)=>{
+                document.getElementById("loader").style.display = "none";
+                document.cookie = `uid=${userid}`;
+                location.href="./aftersignin.html";
+               })
+              
+  })
+
+    }
+
+	}
+
+
 </script>	
 </body>
 </html>

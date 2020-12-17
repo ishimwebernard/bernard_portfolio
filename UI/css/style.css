@@ -241,7 +241,7 @@ ul{
 	height: 45rem;
 }
 .row4 .card:hover{
-	box-shadow: 5rem 5rem 5rem 5rem #E6EDFF ;
+	opacity: 60%;
 }
 .row4{
 	display: flex;
@@ -301,7 +301,7 @@ ul{
 }
 
 .row4 .card:nth-child(1){
-	background: #E6EDFF;
+	background: linear-gradient(45deg, rgb(197, 197, 197),rgb(165, 165, 165));
 
 
 }
@@ -338,7 +338,7 @@ ul{
 
 .row4 .card:nth-child(2){
 
-	background: #F9F7C7;
+	background: #b1b1b1;
 
 
 }
