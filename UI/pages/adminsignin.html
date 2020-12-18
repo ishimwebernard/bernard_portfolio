@@ -7,7 +7,6 @@
     <title>Administrator Login Page</title>
 </head>
 <body>
-	<script src="../js/functions.js"></script>
     <div class="content">
         <div class="row1">
 			<div class="logo">
@@ -65,6 +64,11 @@
 	</div>
 	
 
+
+
+
+
+
 	<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -85,21 +89,20 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-	firebase.analytics();
+    firebase.analytics();
+
 	var passwordField = document.getElementById('pwd');
 function ADMIN_LOGIN(){
-	firebase.firestore().collection('admin').doc('ADMIN').get().then((snapShot)=>{
-		console.log(snapShot.data().password);
-		if(passwordField.value == snapShot.data().password){
-			location.href=`./adminpanel.html`;
-		}else{
-			alert('Incorrect Password');
-		}
-	});
-
+    firebase.firestore().collection('admin').doc('ADMIN').get().then((snapShot)=>{
+        console.log(snapShot.data().password);
+        if(passwordField.value == snapShot.data().password){
+            location.href=`./adminpanel.html`;
+        }else{
+            alert('Incorrect Password');
+        }
+    });
 }
 </script>	
-
 
 </body>
 </html>
