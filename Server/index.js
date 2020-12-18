@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 connectoToMongo();
 
-app.use(routes)
+app.use(routes);
 
 app.listen(process.env.PORT || 3000, ()=>{
   console.log("App is listening");

@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/signin.css">
-    <title>Sign In </title>
+    <link rel="stylesheet" href="../css/adminsignin.css">
+    <title>Administrator Login Page</title>
 </head>
 <body>
-	<div class="loader" id="loader">
-		<p>Processing ...</p>
-	</div>
+	<script src="../js/functions.js"></script>
     <div class="content">
         <div class="row1">
 			<div class="logo">
@@ -22,6 +20,7 @@
 				<li><a href="about.html">ABOUT</a></li>
 				<li><a href="blogpage.html">BLOG PAGE</a></li>
 				<li><a href="contact.html">CONTACT ME</a></li>
+				<li><a href="signin.html">Sign In</a></li>
 			</ul>
 				
 			</div>	
@@ -35,38 +34,37 @@
 			</div>
 			<div class="mavigationBarMobile" id="mavigationBarMobile">
 				<ul>
-					<li><a href="../kindex.html">HOME</a></li>
-				<li><a href="about.html">ABOUT</a></li>
-				<li><a href="blogpage.html">BLOG PAGE</a></li>
-				<li><a href="contact.html">CONTACT ME</a></li>
-				<li><a href="signin.html">Sign In</a></li>
+					<li><a href="../index.html">HOME</a></li>
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="blogpage.html">BLOG PAGE</a></li>
+					<li><a href="contact.html">CONTACT ME</a></li>
+					<li><a href="signin.html">Sign In</a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="row2">
 			<div class="col1">
-				<h3 class="title">Log In</h3>
+				<h3 class="title">Administrator</h3>
 				<ul>
 					<li>Get faster <span>Updates</span> </li>
-					<li>Get <span>discounts</span> for your orders</li>
-					<li>Stay <span>updated</span> about me</li>
+					<li><span>Manage</span>  your orders</li>
+		
 				</ul>
 			</div>
 			<div class="col2">
-				<h2>Simplify your <br> interaction with <br> me</h2>
-				<p class="label">Email</p>
-				<input type="text" id="signemail">
-				<p class="label">Password</p>
-				<input type="password" id="signpassword"><br>
-				<button onclick="login()" >Login</button><br><br>
-				<div class="forgot">Forgot password <a href="../pages/resetpwd.html">Reset your password</a></div>
-				<div class="forgot"> Are you administrator, <a href="../pages/adminlogin.html">Login</a></div>
-				<div class="forgot">Don't have an account <a href="../pages/createaccount.html">Sign up</a>	</div>
+				
+                <p class="label">Password</p>
+                <form name="password"><input name="password" id="pwd" type="password"><br></form>
+				
+				<button onclick="ADMIN_LOGIN()">Login</button><br><br>
+				
 
 
 			</div>
 		</div>
 	</div>
+	
+
 	<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -87,25 +85,21 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-function login(){
-	document.getElementById("loader").style.display = "block";
-	var email = document.getElementById(`signemail`).value;
-	var password = document.getElementById(`signpassword`).value;
-	firebase.auth().signInWithEmailAndPassword(email, password)
-  .then((user) => {
-	document.getElementById("loader").style.display = "none";
-	document.cookie = `uid=${user.user.uid}`;
-	location.href="../pages/aftersignin.html";
+	firebase.analytics();
+	var passwordField = document.getElementById('pwd');
+function ADMIN_LOGIN(){
+	firebase.firestore().collection('admin').doc('ADMIN').get().then((snapShot)=>{
+		console.log(snapShot.data().password);
+		if(passwordField.value == snapShot.data().password){
+			location.href=`./adminpanel.html`;
+		}else{
+			alert('Incorrect Password');
+		}
+	});
 
-  })
-  .catch((error) => {
-	document.getElementById("loader").style.display = "none";
-    var errorCode = error.code;
-    var errorMessage = error.message;
-	alert(errorMessage);
-  });
 }
 </script>	
+
+
 </body>
 </html>

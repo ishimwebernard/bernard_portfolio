@@ -8,8 +8,19 @@ var cookies = document.cookie.split(';').map(cookie => cookie.split('='))
 
 userId = String(cookies.uid);
 var userProfiles = document.getElementsByClassName('profilePicture');
+try{
+    initiateUserImage();
+    firebase.firestore().collection('users').doc(userId).get().then((dataSnapshot)=>{
+        console.log(dataSnapshot.data().firstName);
+        username.innerText = dataSnapshot.data().firstName;
+       
+    })
+}catch(error){
 
-initiateUserImage();
+}
+
+
+
 
 
 function checkInput(){
@@ -70,11 +81,7 @@ function initiateUserImage(){
     }).catch(error=>{
         alert('Error'+error);
     });
-    firebase.firestore().collection('users').doc(userId).get().then((dataSnapshot)=>{
-        console.log(dataSnapshot.data().firstName);
-        username.innerText = dataSnapshot.data().firstName;
-       
-    })
+  
 }
 var choosefile = document.getElementById("profilechooser").onchange = function(){
     var storageRef = firebase.storage().ref();
