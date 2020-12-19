@@ -1,3 +1,4 @@
+[![Bernard Logo](https://firebasestorage.googleapis.com/v0/b/portfoliocapstone-1fd25.appspot.com/o/Bernardlogo.png?alt=media&token=6dd11e73-6b51-41bd-bb45-f93d62fc734c)]]
 # Bernard's portfolio
 
 This repo is functionality complete — PRs and issues welcome!
