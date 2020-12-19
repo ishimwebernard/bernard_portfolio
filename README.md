@@ -50,6 +50,8 @@ Requests are authenticated with a valid JWT. The class at `controllers/auth.js` 
 
 
 <br />
+
+
 # Change log
 As compared to the first version of the API, some cool new features are added
  - The app is now hosted and can be navigated on from the web browser
