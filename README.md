@@ -1,4 +1,3 @@
-# ![Node/Express/Mongoose Example App](project-logo.png)
 
 > ### Bernard's Portfolio
 
