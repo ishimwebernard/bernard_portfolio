@@ -1,8 +1,8 @@
-![Bernard Logo](https://firebasestorage.googleapis.com/v0/b/portfoliocapstone-1fd25.appspot.com/o/Bernardlogo.png?alt=media&token=5a5da54f-d293-485d-bcea-b9156e3fd641)
+![Bernard Logo](https://firebasestorage.googleapis.com/v0/b/portfoliocapstone-1fd25.appspot.com/o/Bernardlogo.png?alt=media&token=5a5da54f-d293-485d-bcea-b9156e3fd641)<br>
 This is a personal brand in which people will find more information about myself
 
 ---
->## Contents
+>## Table of contents
 1. Getting started
 2. Code overview
 3. Change log
