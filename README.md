@@ -2,6 +2,13 @@
 # My personal portfolio
 This is a personal brand in which people will find more information about myself
 
+---
+>## Contents
+1. Getting started
+2. Code overview
+3. Change log
+
+---
 # Getting started
 ## Installation of the server
 To get the Node server running locally:
