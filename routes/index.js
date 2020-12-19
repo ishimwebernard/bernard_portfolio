@@ -1,6 +1,6 @@
 const postRoute = require('./api/post');
 const commentRoute = require('./api/comments')
-const {Router, request}= require("express");
+const {Router}= require("express");
 const authroute = require('../routes/api/authroute');
 const welcomeRoute = require('../routes/api/welcome');
 
