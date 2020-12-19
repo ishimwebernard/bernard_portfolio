@@ -1,5 +1,4 @@
-
-> ### Bernard's Portfolio
+# Bernard's portfolio
 
 This repo is functionality complete — PRs and issues welcome!
 
