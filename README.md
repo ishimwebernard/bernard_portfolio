@@ -1,5 +1,4 @@
 ![Bernard Logo](https://firebasestorage.googleapis.com/v0/b/portfoliocapstone-1fd25.appspot.com/o/Bernardlogo.png?alt=media&token=5a5da54f-d293-485d-bcea-b9156e3fd641)
-# My personal portfolio
 This is a personal brand in which people will find more information about myself
 
 ---
@@ -51,4 +50,7 @@ Requests are authenticated with a valid JWT. The class at `controllers/auth.js` 
 
 
 <br />
-
+# Change log
+As compared to the first version of the API, some cool new features are added
+ - The app is now hosted and can be navigated on from the web browser
+ - The app can now accept the user sign in and the hash functionality
