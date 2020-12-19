@@ -3,12 +3,22 @@
 This is a personal brand in which people will find more information about myself
 
 # Getting started
-
+## Installation of the server
 To get the Node server running locally:
 
 - Clone this repo
 - `npm install` to install all required dependencies
 -Use `npm start` to start the server
+
+## Rendering of HTML pages
+This application is also present and visible as HTML pages
+
+-Use the url <https://ishimwebernard.github.io/bernard_portfolio/UI/> to see the landing page that navigates you through everything
+
+## Accessing the server from the browser
+This application is also hosted and documented
+
+- Use the url <https://bernardportfoliov2.herokuapp.com/api-docs/> to use the server
 
 # Code Overview
 
