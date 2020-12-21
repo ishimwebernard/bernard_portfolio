@@ -1,0 +1,12 @@
+--- 
+cashe: npm
+
+env: 
+ - PORT: 5000
+ - DB_USER: pextech
+ - DB_PASSWORD: Mc1639_1639
+
+
+install: "npm ci"
+language: node_js
+node_js: "12.16.3"
