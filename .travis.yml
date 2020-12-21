@@ -2,9 +2,8 @@
 cashe: npm
 
 env: 
- - PORT: 5000
- - DB_USER: pextech
- - DB_PASSWORD: Mc1639_1639
+ - PORT: 3000
+ - MONGO_HASH: bianca
 
 
 install: "npm ci"
