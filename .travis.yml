@@ -1,11 +1,12 @@
---- 
-cashe: npm
-
-env: 
- - PORT: 3000
- - MONGO_HASH: bianca
-
-
-install: "npm ci"
 language: node_js
-node_js: "12.16.3"
+node_js:
+  - "stable"
+env:
+  - MONGO_HASH=mongodb+srv://bianca:bianca@cluster0.zgi7m.mongodb.net/sampledb?retryWrites=true&w=majority
+services:
+  - mongodb
+script:
+  - npm ci
+  - npm run test
+notifications:
+  email: false
