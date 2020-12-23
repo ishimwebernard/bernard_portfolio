@@ -1,4 +1,5 @@
 
+const { response } = require('express');
 const Comments = require('../models/Comments');
 
 class Comment{
@@ -8,61 +9,75 @@ class Comment{
                 message: request.body.message,
                 email: request.body.email
             });
+           try{
             toPost.save().then(()=>{
-                response.json(toPost);       
-            }).catch(error=>{
-                response.json({
-                    status: error,
-                    message: "Some fields are empty"
-                })
-            });
+                return response.send({
+                    status: 200,
+                    message: 'POST a comment',
+                    data: toPost
+                })  
+            })
+           }catch(error){
+               return response.send(error).status(500);
+           }
         }
         static deleteThisComment = (request, response)=>{
-            Comments.remove({_id: request.params.postId}).then((data)=>{
+           try{
+
             Comments.remove({_id: request.params.commentId}).then((data)=>{
-                response.json(data);
-            }).catch(error=>{
-                response.json({
-                    status: error,
-                message: 'Something went wrong'
-                })
-            })
-        })}
+                     return response.send({
+                         status: 200,
+                         message: 'DELETE comment',
+                         data
+                     })
+             });
+                
+           }catch(error){
+                return response.send(error).status(500);
+           }
+        }
         static retrieveComment = (request, response)=>{
             
+           try{
             Comments.find().then(data=>{
-                response.json(data);
-            }).catch(error=>{
-                response.json({
-                    status: error,
-                message: 'Something went wrong'
-                
+                return response.send({
+                    status: 200,
+                    message: 'GET all Comments',
+                    data
                 })
             })
+           }catch(error){
+               return response.send(error).status(500);
+           }
         }
 
         static updateComment = (request, response)=>{
+           try{
             Comments.update({_id: request.params.commentID},
                 { $set: {title: request.body.title}}
                 ).then((data)=>{
-                    response.json(data);
-                }).catch(error=>{
-                    response.json({
-                        status: error,
-                        message: "Something is wrong"
+                    return response.send({
+                        status: 200,
+                        message: 'Patch Comment',
+                        data
                     })
-                })
-        
-        }
+                });
+           }catch(error){
+            return response.send(error).status(500);
+        }}
         static getSingleComment = (request,response)=>{
+           try{
             Comments.findById(request.params.commentId).then(data=>{
-                response.json(data);
-            }).catch(error=>{
-                response.json({
-                    status: error,
-                    message: "Something is wrong"
+                return response.send({
+                    status: 200,
+                    message: 'GET single comment',
+                    data
                 })
-            })}
+            })
+           }catch(error){
+               return response.send(error).status(500);
+           }
+        }
 }
 
 module.exports = Comment;
