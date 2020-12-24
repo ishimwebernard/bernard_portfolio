@@ -100,6 +100,33 @@
 
 /**
  * @swagger
+ * paths:
+  /account:
+    post:
+      summary: Create account
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/models/user'
+          application/xml:
+            schema:
+               $ref: '#/models/user'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/models/user'
+          text/plain:
+            schema:
+              type: string
+      responses:
+        '201':
+          description: Created
+ */
+
+/**
+ * @swagger
  * account/:
  *  post:
  *   summary: Create an account
