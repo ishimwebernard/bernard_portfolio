@@ -66,22 +66,38 @@
  */
 
 /**
- * @swagger
- * account/login:
- *  post:
- *   summary: Login with your credentials
- *   description: Login with your credentials
- *   consumes:
- *    - application/json
- *   produces:
- *    - application/json
- *   parameters:
- *    - in: body
- *      name: body
- *      required: true
- *      description: body object
- *      
- */
+* @swagger
+* account/login:
+*   post:
+*     tags:
+*       - Blogs
+*     name: comment
+*     summary: adding a comment on the blog
+*     consumes:
+*       - application/json
+*     parameters:
+*       - name: body
+*         in: body
+*         schema:
+*             type: object
+*             properties:
+*                email:
+*                 type: string
+*                 required: true
+*                password:
+*                 type: string
+*                 required: true
+*              
+*              
+*     responses:
+*       201:
+*             description: Succesfully Loged In
+*       400:
+*             description: Bad request.
+*       500:
+*             description: server error.
+* */
+
 /**
  * @swagger
  * account/:

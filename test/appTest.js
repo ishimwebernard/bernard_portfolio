@@ -26,12 +26,12 @@ const sampleUser = new User({
 
 describe("Blog tests:", async () => {
 
-  it('Get all blogs ', (done) => {
-    chai.request(app)
+  it('Get all blogs ',  (done) => {
+     chai.request(app)
       .get('/post')
-      .end((err, res) => {
-        expect(res.status).to.equals(200);
-      });
+      .end((error,response)=>{
+        expect(response).to.have.status(200);
+      })
      done();
   });
 
