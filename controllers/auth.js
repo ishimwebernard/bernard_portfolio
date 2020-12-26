@@ -35,33 +35,35 @@ class userManip{
             email: request.body.email,
             password: request.body.password
         }
-       try{
-
         userSchema.findOne({$or: [{email:request.body.email}]}).then(SUCCESS_USER=>{
             if(SUCCESS_USER){
                 bcrypt.compare(request.body.password, SUCCESS_USER.password, function(error, result){
-                    if(error){
-                        response.setHeader("Error", true);
-                        return response.json({
-                            message:"Incorrecct Password or the user is deleted",
-                            
-                        });
-                    }else if(result){
+                    console.log(result);
+                    console.log(error);
+                       if(result){
                         var token = jwt.sign({name: user.name}, "$xfg%3./;",{expiresIn: "1h"});
-                        response.setHeader("Error", false);
-                        return response.json({
-                            status: 200,
-                            message:"Login Succesful",
-                            token
+                        response.json({
+                           message:"Login Succesful",
+                           token
                         });
-                    }
+                       }else{
+                           response.send({
+                               status: 500,
+                               message: "Invalid Credentials"
+                           })
+                       }
+                    //}
                     
-                })
+                });
             }
-        })
-       }catch(error){
-            return response.send(error).status(500);
-       }
+        }).catch(error=>{
+            response.setHeader("Network Error", true);
+            response.json({
+                message: "Something went wrong",
+                error
+            })
+        });
     }
-}
+    }
+
 module.exports = userManip
