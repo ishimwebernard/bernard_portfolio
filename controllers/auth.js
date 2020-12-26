@@ -38,16 +38,17 @@ class userManip{
         userSchema.findOne({$or: [{email:request.body.email}]}).then(SUCCESS_USER=>{
             if(SUCCESS_USER){
                 bcrypt.compare(request.body.password, SUCCESS_USER.password, function(error, result){
-                    console.log(result);
-                    console.log(error);
+                    
                        if(result){
+                        console.log(result);
+                        console.log(error);
                         var token = jwt.sign({name: user.name}, "$xfg%3./;",{expiresIn: "1h"});
-                        response.json({
+                        response.send({
                            message:"Login Succesful",
                            token
                         });
                        }else{
-                           response.send({
+                           response.json({
                                status: 500,
                                message: "Invalid Credentials"
                            })
@@ -57,7 +58,6 @@ class userManip{
                 });
             }
         }).catch(error=>{
-            response.setHeader("Network Error", true);
             response.json({
                 message: "Something went wrong",
                 error

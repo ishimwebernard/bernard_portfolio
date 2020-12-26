@@ -8,13 +8,14 @@
  *         description: Success
  * 
  */
+
  /**
  * @swagger
  * /comment:
  *   get:
  *     description: Shows you all the comment
  *     responses:
- *       200:
+ *       "200":
  *         description: Success
  * 
  */
@@ -65,38 +66,38 @@
  *     description: success
  */
 
-/**
-* @swagger
-* account/login:
-*   post:
-*     tags:
-*       - Blogs
-*     name: comment
-*     summary: adding a comment on the blog
-*     consumes:
-*       - application/json
-*     parameters:
-*       - name: body
-*         in: body
-*         schema:
-*             type: object
-*             properties:
-*                email:
-*                 type: string
-*                 required: true
-*                password:
-*                 type: string
-*                 required: true
-*              
-*              
-*     responses:
-*       201:
-*             description: Succesfully Loged In
-*       400:
-*             description: Bad request.
-*       500:
-*             description: server error.
-* */
+// /**
+// * @swagger
+// * /account/login:
+// *   post:
+// *     tags:
+// *       - Blogs
+// *     name: comment
+// *     summary: adding a comment on the blog
+// *     consumes:
+// *       - application/json
+// *     parameters:
+// *       - name: body
+// *         in: body
+// *         schema:
+// *             type: object
+// *             properties:
+// *                email:
+// *                 type: string
+// *                 required: true
+// *                password:
+// *                 type: string
+// *                 required: true
+// *              
+// *              
+// *     responses:
+// *       201:
+// *             description: Succesfully Loged In
+// *       400:
+// *             description: Bad request.
+// *       500:
+// *             description: server error.
+// * */
 
 /**
  * @swagger
@@ -125,20 +126,79 @@
           description: Created
  */
 
+// /**
+//  * @swagger
+//  * account/:
+//  *  post:
+//  *   summary: Create an account
+//  *   description: Sign up with email and username
+//  *   consumes:
+//  *    - application/json
+//  *   produces:
+//  *    - application/json
+//  *   parameters:
+//  *    - in: body
+//  *      name: body
+//  *      required: true
+//  *      description: body object
+//  *      
+//  */
+
+
 /**
  * @swagger
- * account/:
+ * /account/login:
  *  post:
- *   summary: Create an account
- *   description: Sign up with email and username
- *   consumes:
- *    - application/json
- *   produces:
- *    - application/json
- *   parameters:
- *    - in: body
- *      name: body
- *      required: true
- *      description: body object
- *      
+ *      summary: "Logs in the user"
+ *      description: "Use your email and password"
+ *      consumes:
+ *       - application/json
+ *      parameters:
+*       - name: body
+*         in: body
+*         schema:
+*             type: object
+*             properties:
+*                "email":
+*                 type: string
+*                 required: true
+*                "password":
+*                 type: string
+*                 required: true
+*        
+*               
+ *      responses:
+ *       "200":
+ *         description: Success  
+ *            
+ */
+
+ /**
+ * @swagger
+ * /comment/{commentId}:
+ *  patch:
+ *      summary: "Updates One Post"
+ *      description: "Enter the new title"
+ *      parameters:
+*       - name: body
+*         in: body
+*         schema:
+*             type: object
+*             properties:
+*                "email":
+*                 type: string
+*                 required: true
+*                "username":
+*                 type: string
+*                 required: true
+*                "message":
+*                 type: string
+*                 required: true
+*               
+*        
+*               
+ *      responses:
+ *       "200":
+ *         description: Success  
+ *            
  */
