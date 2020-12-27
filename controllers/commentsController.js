@@ -1,5 +1,4 @@
 
-const { response } = require('express');
 const Comments = require('../models/Comments');
 
 class Comment{
@@ -9,6 +8,7 @@ class Comment{
                 message: request.body.message,
                 email: request.body.email
             });
+            console.log(toPost);
            try{
             toPost.save().then(()=>{
                 return response.send({
@@ -54,7 +54,7 @@ class Comment{
         static updateComment = (request, response)=>{
            try{
             Comments.update({_id: request.params.commentID},
-                { $set: {title: request.body.title}}
+                { $set: {message: request.body.message}}
                 ).then((data)=>{
                     return response.send({
                         status: 200,

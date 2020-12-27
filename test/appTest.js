@@ -2,7 +2,7 @@ import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../index';
 import Posts from '../models/Posts';
-import Comment from '../models/Comments';
+import Comment, { deleteOne } from '../models/Comments';
 import User from '../models/user';
 require('@babel/polyfill');
 
@@ -25,60 +25,7 @@ const sampleUser = new User({
 })
 
 describe("Blog tests:", async () => {
-
-  it('Get all blogs ',  (done) => {
-     chai.request(app)
-      .get('/post')
-      .end((error,response)=>{
-        expect(response).to.have.status(200);
-      })
-     done();
-  });
-
-  it('should Save a  post', () => {
-    const res =  chai
-      .request(app)
-      .post('/post')
-      .field('title', toPost.title)
-      .field("imagesource", toPost.imagesource)
-      .field('description', toPost.description);
-      res.end((err,res)=>{
-        expect(err).to.be.null;
-        expect(res).to.have.status(200);
-      });
-  });
-
-  it('should Patch a  post', () => {
-    const res = chai
-      .request(app)
-      .patch('/post/5fc86a59415f5a11ecc96015')
-      .field('title', toPost.title)
-      .field('description', toPost.description)
-      .field('imagesource', toPost.imagesource)
-      .end((err,res)=>{
-        expect(res.status).to.equals(200);
-      })
-  });
-  it('should get One single   post', (done) => {
-    const res = chai
-      .request(app)
-      .get('/post/5fd2fd34f5f9d1142feed30f')
-      .end((err,res)=>{
-        expect(res.status).to.equals(200);
-      });
-      done();
-   
-  });
-  it('should return 404', () => {
-    const res = chai
-      .request(app)
-      .get('/post/FAKEID')
-      .end((err,res)=>{
-        expect(res.status).to.equals(404);
-      })
-  });
-
-  it('should Save a  Comment', () => {
+  it('should Save a  Comment', (done) => {
     const res = chai
       .request(app)
       .post('/comment')
@@ -86,75 +33,136 @@ describe("Blog tests:", async () => {
       .field("message", testComment.message)
       .field('email', testComment.email)
       .end((err,res)=>{
-        expect(res.status).to.equals(200);
-      })
-  });
-  it('Return all comments', () => {
-    const res = chai
-      .request(app)
-      .get('/comment')
-      .end((err,res)=>{
-        expect(res.status).to.equals(200);
-      })
-  });
-  it('Update One Comment', () => {
-    const res = chai
-      .request(app)
-      .patch('/comment/5fd305f24042401a6aaacb5a')
-      .field('username', testComment.username)
-      .field("message", testComment.message)
-      .field('email', testComment.email)
-      .end((err,res)=>{
-        expect(res.status).to.equals(200);
-      })
-  });
-  it('Return One Comment', () => {
-    const res = chai
-      .request(app)
-      .get('/comment/5fd305f24042401a6aaacb5a')
-      .end((err,res)=>{
-        expect(res.status).to.equals(200);
-      })
-  });
-  it('Delete One Comment', () => {
-    const res = chai
-      .request(app)
-      .delete('/comment/5fd305f24042401a6aaacb5a')
-      .end((err,res)=>{
-        expect(res.status).to.equals(200);
-      })
-  });
-  it('Sign Up a user', () => {
-    const res = chai
-      .request(app)
-      .post('/account')
-      .field('name', sampleUser.name)
-      .field('email', sampleUser.email)
-      .field('password', sampleUser.password)
-      .end((err,res)=>{
-        expect(res.status).to.equals(200);
-      })
-  });
-  it('Sign in a user', () => {
-    const res = chai
-      .request(app)
-      .post('/account/login')
-      .field('email', sampleUser.email)
-      .field('password', sampleUser.password)
-      .end((err,res)=>{
-        expect(res.status).to.equals(200);
-      })
-  });
-  it('Return a 404 Status', () => {
-    const res = chai
-      .request(app)
-      .post('/account/logkin')
-      .field('efmail', sampleUser.email)
-      .field('password', sampleUser.password)
-      .end((err,res)=>{
-        expect(res.status).to.equals(404);
-      })
-  });
+        console.log(res.body);
+        // expect(res.status).to.equals(200);
+        res.should.have.status(200);
+
+        done();
+        
+      });
+    });
+});
+
+  // it('Get all blogs ',  (done) => {
+  //    chai.request(app)
+  //     .get('/post')
+  //     .end((error,response)=>{
+  //       expect(response).to.have.status(200);
+  //     })
+  //    done();
+  // });
+
+  // it('should Save a  post', () => {
+  //   const res =  chai
+  //     .request(app)
+  //     .post('/post')
+  //     .field('title', toPost.title)
+  //     .field("imagesource", toPost.imagesource)
+  //     .field('description', toPost.description);
+  //     res.end((err,res)=>{
+  //       expect(err).to.be.null;
+  //       expect(res).to.have.status(200);
+  //     });
+  // });
+
+  // it('should Patch a  post', () => {
+  //   const res = chai
+  //     .request(app)
+  //     .patch('/post/5fc86a59415f5a11ecc96015')
+  //     .field('title', toPost.title)
+  //     .field('description', toPost.description)
+  //     .field('imagesource', toPost.imagesource)
+  //     .end((err,res)=>{
+  //       expect(res.status).to.equals(200);
+  //     })
+  // });
+  // it('should get One single   post', (done) => {
+  //   const res = chai
+  //     .request(app)
+  //     .get('/post/5fd2fd34f5f9d1142feed30f')
+  //     .end((err,res)=>{
+  //       expect(res.status).to.equals(200);
+  //     });
+  //     done();
+   
+  // });
+  // it('should return 404', () => {
+  //   const res = chai
+  //     .request(app)
+  //     .get('/post/FAKEID')
+  //     .end((err,res)=>{
+  //       expect(res.status).to.equals(404);
+  //     })
+  // });
+
+
+  // });
+  // it('Return all comments', () => {
+  //   const res = chai
+  //     .request(app)
+  //     .get('/comment')
+  //     .end((err,res)=>{
+  //       expect(res.status).to.equals(200);
+  //     })
+  // });
+  // it('Update One Comment', () => {
+  //   const res = chai
+  //     .request(app)
+  //     .patch('/comment/5fd305f24042401a6aaacb5a')
+  //     .field('username', testComment.username)
+  //     .field("message", testComment.message)
+  //     .field('email', testComment.email)
+  //     .end((err,res)=>{
+  //       expect(res.status).to.equals(200);
+  //     })
+  // });
+  // it('Return One Comment', () => {
+  //   const res = chai
+  //     .request(app)
+  //     .get('/comment/5fd305f24042401a6aaacb5a')
+  //     .end((err,res)=>{
+  //       expect(res.status).to.equals(200);
+  //     })
+  // });
+  // it('Delete One Comment', () => {
+  //   const res = chai
+  //     .request(app)
+  //     .delete('/comment/5fd305f24042401a6aaacb5a')
+  //     .end((err,res)=>{
+  //       expect(res.status).to.equals(200);
+  //     })
+  // });
+  // it('Sign Up a user', () => {
+  //   const res = chai
+  //     .request(app)
+  //     .post('/account')
+  //     .field('name', sampleUser.name)
+  //     .field('email', sampleUser.email)
+  //     .field('password', sampleUser.password)
+  //     .end((err,res)=>{
+  //       expect(res.status).to.equals(200);
+  //     })
+  // });
+  // it('Sign in a user', () => {
+  //   const res = chai
+  //     .request(app)
+  //     .post('/account/login')
+  //     .field('email', sampleUser.email)
+  //     .field('password', sampleUser.password)
+  //     .end((err,res)=>{
+  //       expect(res.status).to.equals(200);
+  //     })
+  // });
+  // it('Return a 404 Status', () => {
+  //   const res = chai
+  //     .request(app)
+  //     .post('/account/logkin')
+  //     .field('efmail', sampleUser.email)
+  //     .field('password', sampleUser.password)
+  //     .end((err,res)=>{
+  //       expect(res.status).to.equals(404);
+  //     })
+  // });
 
 
 
@@ -296,4 +304,3 @@ describe("Blog tests:", async () => {
   //   response.should.have.status(201);
   //   response.body.should.have.property("msg");
   // });
-});

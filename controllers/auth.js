@@ -3,7 +3,7 @@ const userSchema = require('../models/user');
 const jwt = require('jsonwebtoken');
 
 class userManip{
-    static signUp= function(request,response,next){
+    static signUp= function(request,response){
         bcrypt.hash(request.body.password,10,function(error,harshedPassword){
             if(error){
                 response.json({
@@ -30,7 +30,7 @@ class userManip{
     })
 }
 
-    static login = function(request, response,next){
+    static login = function(request, response){
         var user = {
             email: request.body.email,
             password: request.body.password

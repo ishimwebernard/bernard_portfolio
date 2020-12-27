@@ -154,49 +154,163 @@
  *      consumes:
  *       - application/json
  *      parameters:
-*       - name: body
-*         in: body
-*         schema:
-*             type: object
-*             properties:
-*                "email":
-*                 type: string
-*                 required: true
-*                "password":
-*                 type: string
-*                 required: true
-*        
-*               
+ *       - name: body
+ *         in: body
+ *         schema:
+ *             type: object
+ *             properties:
+ *                "email":
+ *                 type: string
+ *                 required: true
+ *                "password":
+ *                 type: string
+ *                 required: true
+ *        
+ *               
  *      responses:
  *       "200":
  *         description: Success  
  *            
  */
 
+
+
+
  /**
  * @swagger
  * /comment/{commentId}:
  *  patch:
- *      summary: "Updates One Post"
- *      description: "Enter the new title"
+ *      summary: "Updates a comment"
+ *      description: "Use your email and password"
+ *      consumes:
+ *       - application/json
  *      parameters:
-*       - name: body
-*         in: body
-*         schema:
-*             type: object
-*             properties:
-*                "email":
-*                 type: string
-*                 required: true
-*                "username":
-*                 type: string
-*                 required: true
-*                "message":
-*                 type: string
-*                 required: true
-*               
-*        
-*               
+ *       - name: commentId
+ *         in: path
+ *       - name: body
+ *         in: body
+ *         schema:
+ *             type: object
+ *             properties:
+ *                "username":
+ *                 type: string
+ *                 required: true
+ *                "message":
+ *                 type: string
+ *                 required: true
+ *                "email":
+ *                 type: string
+ *                 required: true
+ *        
+ *               
+ *      responses:
+ *       "200":
+ *         description: Success  
+ *            
+ */
+
+
+  /**
+ * @swagger
+ * /post/{postId}:
+ *  patch:
+ *      summary: "Updates a post"
+ *      description: "Enter a post JSON"
+ *      consumes:
+ *       - application/json
+ *      parameters:
+ *       - name: postId
+ *         in: path
+ *       - name: body
+ *         in: body
+ *         schema:
+ *             type: object
+ *             properties:
+ *                "title":
+ *                 type: string
+ *                 required: true
+ *                "description":
+ *                 type: string
+ *                 required: true
+ *                "imagesource":
+ *                 type: string
+ *                 required: true
+ *        
+ *               
+ *      responses:
+ *       "200":
+ *         description: Success  
+ *            
+ */
+
+  /**
+ * @swagger
+ * /comment/{commentId}:
+ *  patch:
+ *      summary: "Updates a comment"
+ *      description: "Use your email and password"
+ *      consumes:
+ *       - application/json
+ *      parameters:
+ *       - name: commentId
+ *         in: path
+ *       - name: body
+ *         in: body
+ *         schema:
+ *             type: object
+ *             properties:
+ *                "username":
+ *                 type: string
+ *                 required: true
+ *                "message":
+ *                 type: string
+ *                 required: true
+ *                "email":
+ *                 type: string
+ *                 required: true
+ *        
+ *               
+ *      responses:
+ *       "200":
+ *         description: Success  
+ *            
+ */
+
+
+  /**
+ * @swagger
+ * /post/{postId}:
+ *  delete:
+ *      summary: "Updates a post"
+ *      description: "Enter a post JSON"
+ *      consumes:
+ *       - application/json
+ *      parameters:
+ *       - name: postId
+ *         in: path
+ *     
+ *        
+ *               
+ *      responses:
+ *       "200":
+ *         description: Success  
+ *            
+ */
+
+   /**
+ * @swagger
+ * /comment/{commentId}:
+ *  delete:
+ *      summary: "Deletes a comment"
+ *      description: "Enter a Comment JSON"
+ *      consumes:
+ *       - application/json
+ *      parameters:
+ *       - name: commentId
+ *         in: path
+ *     
+ *        
+ *               
  *      responses:
  *       "200":
  *         description: Success  
