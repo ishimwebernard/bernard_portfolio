@@ -72,7 +72,7 @@ describe("Blog tests:", async () => {
   it('should get One single   post', (done) => {
     chai
       .request(app)
-      .get(`/post/5fe9b503110b607db058448b`)
+      .get('/post/5fe9c40811f8a7887f293e32')
       .end((err,res)=>{
         expect(res.status).to.equals(200);
         done();
@@ -181,7 +181,7 @@ describe("Blog tests:", async () => {
     })
   });
   it('Delete One Comment', (done) => {
-    const res = chai
+    chai
       .request(app)
       .delete(`/comment/${_FINAL_TEST_COMMENT._id}`)
       .end((err,res)=>{
