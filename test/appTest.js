@@ -72,7 +72,7 @@ describe("Blog tests:", async () => {
   it('should get One single   post', (done) => {
     chai
       .request(app)
-      .get('/post/5fe8aeda027f7038501ab6c5')
+      .get('/post/5fe8f27bd195f81f1c5b71d8')
       .end((err,res)=>{
         expect(res.status).to.equals(200);
         done();
