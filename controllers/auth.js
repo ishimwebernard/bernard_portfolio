@@ -40,7 +40,6 @@ class userManip{
         userSchema.findOne({$or: [{email:request.body.email}]}).then(SUCCESS_USER=>{
             if(SUCCESS_USER){
                 bcrypt.compare(request.body.password, SUCCESS_USER.password, function(error, result){
-                    
                        if(result){
                         var token = jwt.sign({name: user.name}, "$xfg%3./;",{expiresIn: "1h"});
                         return response.status(200).send({
