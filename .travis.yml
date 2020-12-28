@@ -7,6 +7,6 @@ services:
   - mongodb
 script:
   - npm ci
-  - npm run test
+  - npm run coverage
 notifications:
   email: false
