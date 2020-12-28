@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "test": "nyc mocha --require @babel/register --timeout 3000 --exit",
+    "start": "nodemon --exec babel-node index.js",
+    "test": "nyc mocha --require @babel/register --timeout 10000 --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
@@ -15,12 +15,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/node": "^7.12.10",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.10",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.12.10",
     "@babel/register": "^7.12.10",
+    "@babel/runtime": "^7.12.5",
     "babel-eslint": "^10.1.0",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
@@ -36,7 +39,8 @@
     "nyc": "^15.1.0",
     "supertest": "^6.0.1",
     "swagger-jsdoc": "^6.0.0-rc.5",
-    "swagger-ui-express": "^4.1.5"
+    "swagger-ui-express": "^4.1.5",
+    "transform-runtime": "^0.0.0"
   },
   "devDependencies": {
     "coveralls": "^3.1.0",

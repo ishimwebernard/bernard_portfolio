@@ -1,5 +1,6 @@
 
-const Posts = require('../models/Posts')
+const Posts = require('../models/Posts');
+const PostValidator = require('../helpers/PostValidator');
 
 class Post{
      static async savePost(request, response){
@@ -34,44 +35,47 @@ class Post{
             return response.send(error).status(500);
            }
         }
-        static getOne = function(request,response){
-           try{
-            Posts.findById(request.params.postId).then(data=>{
-                return response.send({
-                    status: 200,
-                    message: 'GET one post',
-                    data
+        static getOne =  function(request, response) {
+            PostValidator.checkIfIdExists(String(request.params.postId)).then(return_Value => {
+                 if(return_Value == 'false'){
+                     return response.status(404).send({message:"No such Post Found"});
+                 }else{
+                     (async()=>{
+                        const data = await Posts.findById(request.params.postId);
+                        return response.status(200).send({message:"Post retrieved Succesfully",data});
+                     })();
+                 }
+                     
                 })
-            })
-           }catch(error){
-            response.send(error).status(500);
-           }
-        }
-        static deletePost = (request, response)=>{
-           try{
-            Posts.remove({_id: request.params.postId}).then((data)=>{
-                return response.send({
-                    status: 200,
-                    message: 'Delete One Post',
-                    data
+            }
+        static deletePost = async(request, response)=>{
+            PostValidator.checkIfIdExists(String(request.params.postId)).then(retval=>{
+                if(retval == 'true'){
+                 Posts.findOneAndRemove({_id: request.params.postId}, function(error,data){
+                        return response.status(200).send({
+                            message: "Record deleted",
+                            data
+                        })
+                });
+            }else{
+                return response.status(404).send({
+                    message: "The post with that ID doesnt exist"
+                    
                 })
-            })
-           }catch(error){
-            return response.send(error).status(500);
-           }
+            }
+              });
         }
         static patchPost = async (request, response)=>{
             try{
                 var data = await Posts.update({_id: request.params.postId},
                     { $set: {title: request.body.title}}
                     );
-                return response.send({
-                    status: 200,
-                    message: 'PATCH post',
+                return response.status(200).send({
+                    message: 'Post Updated succesfully',
                     data
                 })    
             }catch(error){
-                return response.send(error).status(500)
+                return response.status(500).send(error);
             }
         }
 

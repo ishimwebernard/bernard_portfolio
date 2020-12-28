@@ -1,33 +1,35 @@
 const bcrypt = require('bcrypt');
 const userSchema = require('../models/user');
 const jwt = require('jsonwebtoken');
+const userValidator = require('../helpers/userValidator');
 
 class userManip{
     static signUp= function(request,response){
+     if(userValidator.checkForSignUp(request.body) == 'false'){
+        return response.status(400).send({
+            message: "Bad request"
+        })
+     }else{
         bcrypt.hash(request.body.password,10,function(error,harshedPassword){
-            if(error){
-                response.json({
-                     error
-                })
-            }
             var user = new userSchema({
                 name: request.body.name,
                 email: request.body.email,
                 password: harshedPassword
             });
-           try{
-            user.save().then(user=>{
-                return response.send({
-                  status: 200,
-                    user,
-                    message: "Success"
-                 })
+            var token = jwt.sign({name: user.name}, "$xfg%3./;",{expiresIn: "1h"});
+            user.save().then((error)=>{
+                if(error !== undefined){
+                    return response.status(200).send({
+                          token,
+                          message: "Success"
+                       })
+                }
+                
              })
-           }catch(error){
-                return response.send(error).status(500);
-           }
 
     })
+     }   
+       
 }
 
     static login = function(request, response){
@@ -40,16 +42,14 @@ class userManip{
                 bcrypt.compare(request.body.password, SUCCESS_USER.password, function(error, result){
                     
                        if(result){
-                        console.log(result);
-                        console.log(error);
                         var token = jwt.sign({name: user.name}, "$xfg%3./;",{expiresIn: "1h"});
-                        response.send({
+                        return response.status(200).send({
                            message:"Login Succesful",
                            token
                         });
                        }else{
-                           response.json({
-                               status: 500,
+                          return response.status(500).json({
+                               
                                message: "Invalid Credentials"
                            })
                        }
@@ -57,12 +57,7 @@ class userManip{
                     
                 });
             }
-        }).catch(error=>{
-            response.json({
-                message: "Something went wrong",
-                error
-            })
-        });
+        })
     }
     }
 

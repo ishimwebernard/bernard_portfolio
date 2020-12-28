@@ -1,6 +1,6 @@
 
 const Comments = require('../models/Comments');
-
+const CommentValidator = require('../helpers/CommentValidator');
 class Comment{
         static saveComment = (request, response)=>{
             const toPost = new Comments({
@@ -9,7 +9,7 @@ class Comment{
                 email: request.body.email
             });
             console.log(toPost);
-           try{
+           
             toPost.save().then(()=>{
                 return response.send({
                     status: 200,
@@ -17,42 +17,40 @@ class Comment{
                     data: toPost
                 })  
             })
-           }catch(error){
-               return response.send(error).status(500);
-           }
+           
         }
         static deleteThisComment = (request, response)=>{
-           try{
+            (async()=>{
+                const res = await CommentValidator.checkIfIdExists(request.params.commentId);
+                if(res == 'true'){
+                    Comments.remove({_id: request.params.commentId}).then((data)=>{
+                        return response.status(200).send({
+                            message: 'Deleted a comment succesfully',
+                            data
+                        })
+                });
+                }else{
+                    return response.status(404).send({
+                        message: "The ID passed does not match any comment"
+                    });
+                }
+            })()
+           ;
 
-            Comments.remove({_id: request.params.commentId}).then((data)=>{
-                     return response.send({
-                         status: 200,
-                         message: 'DELETE comment',
-                         data
-                     })
-             });
+           
                 
-           }catch(error){
-                return response.send(error).status(500);
-           }
+           
         }
-        static retrieveComment = (request, response)=>{
-            
-           try{
-            Comments.find().then(data=>{
-                return response.send({
-                    status: 200,
-                    message: 'GET all Comments',
-                    data
-                })
-            })
-           }catch(error){
-               return response.send(error).status(500);
-           }
+        static retrieveComment = async(request, response)=>{
+           const data = await Comments.find();
+           return response.status(200).send({
+               message: "Data retrieving finished succesfully",
+               data
+           })
         }
 
         static updateComment = (request, response)=>{
-           try{
+          
             Comments.update({_id: request.params.commentID},
                 { $set: {message: request.body.message}}
                 ).then((data)=>{
@@ -62,11 +60,10 @@ class Comment{
                         data
                     })
                 });
-           }catch(error){
-            return response.send(error).status(500);
-        }}
+          
+    }
         static getSingleComment = (request,response)=>{
-           try{
+          
             Comments.findById(request.params.commentId).then(data=>{
                 return response.send({
                     status: 200,
@@ -74,9 +71,7 @@ class Comment{
                     data
                 })
             })
-           }catch(error){
-               return response.send(error).status(500);
-           }
+           
         }
 }
 
