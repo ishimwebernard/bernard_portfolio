@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get("/", (request, response)=>{
-    response.json({
+    response.status(200).send({
         "message":"Welcome USE YOUR BROWSER TO NAVIGATE THROUGH MY PORTFOLIO",
         "/post":"See all posts",
         "/comment":"See all comments",
