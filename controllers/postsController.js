@@ -1,6 +1,5 @@
-
-const Posts = require('../models/Posts');
-const PostValidator = require('../helpers/PostValidator');
+import Posts from '../models/Posts';
+import PostValidator from '../helpers/PostValidator';
 
 class Post{
      static async savePost(request, response){

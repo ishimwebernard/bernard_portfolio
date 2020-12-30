@@ -1,4 +1,4 @@
-const Comments = require('../models/Comments');
+import Comments from '../models/Comments';
 class CommentValidator{
   static checkIfIdExists = async(_checkId)=>{
       let retval = 'false';

@@ -1,11 +1,12 @@
-const express = require("express");
-const bodyParser = require('body-parser');
+import express from 'express';
+import bodyParser from 'body-parser';
 const  app = express();
-const connectoToMongo = require('./config/mongo');
-const routes = require('./routes/index');
-const swaggerJsDoc = require('swagger-jsdoc');
-const swaggerUI = require('swagger-ui-express');
-const userValidator = require('./helpers/userValidator');
+import connectoToMongo from './config/mongo';
+import routes from './routes/index';
+import swaggerJsDoc from 'swagger-jsdoc';
+import swaggerUI from 'swagger-ui-express';
+
+
 require("dotenv/config");
 require("@babel/polyfill");
 

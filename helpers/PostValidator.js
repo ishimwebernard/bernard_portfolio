@@ -1,4 +1,5 @@
-const Posts = require('../models/Posts');
+// const Posts = require('../models/Posts');
+import Posts from '../models/Posts';
 class PostValidator{
   static checkIfIdExists = async(_checkId)=>{
       const postIds = [];
