@@ -11,18 +11,25 @@ const toPost = new Posts({
   description: "Some simple description",
   imagesource: "Some kind of link"
 });
-
-var _FINAL_TEST_COMMENT;
-
+let NEWLY_POSTED;
 describe("Posts tests:", async () => {
     it('Get all Posts ',  (done) => {
       chai.request(app)
        .get('/posts')
        .end((error,response)=>{
          expect(response).to.have.status(200);
+         NEWLY_POSTED = response.body.data;
          done();
        })
    });
+   it("Should return a single Post", (done)=>{
+    chai.request(app)
+        .get(`/posts/${NEWLY_POSTED[2]._id}`)
+        .end((err,res)=>{
+          res.should.have.status(200);
+          done();
+        })
+  })
   it('should Save a  post', (done) => {
     const res =  chai
       .request(app)
@@ -44,43 +51,45 @@ describe("Posts tests:", async () => {
         done();
       })
   });
-  it('should get One single   post', (done) => {
-    chai
-      .request(app)
-      .get('/posts/5fe8ae40a99f893788a2f5ac')
-      .end((err,res)=>{
-        expect(res.status).to.equals(200);
-        done();
+  // it('should get One single   post', (done) => {
+  //   chai
+  //     .request(app)
+  //     .get(`/posts/${NEWLY_POSTED._id}/`)
+  //     .end((err,res)=>{
+  //       expect(res.status).to.equals(200);
+  //       console.log(res);
+  //       console.log("Something Printed")
+  //       done();
 
-      });
+  //     });
    
-  });
+  // });
 
   it('Should not get Posts by using invalid or unexisting Id', (done) => {
     chai
       .request(app)
       .get('/posts/FAKEID')
       .end((err,res)=>{
-         expect(res.status).to.equals(404);
+         res.should.have.status(404)
         done();
         
       })
   });
 
 
-  it('Should not delete a post for a fake Id',(done)=>{
+  it('Should delete this post',(done)=>{
     chai.request(app)
-    .delete('/posts/fakeId')
+    .delete(`/posts/${toPost._id}12`)
     .end((err,res)=>{
       res.should.have.status(404);
       done();
     })
-  })
+  });
   it('Should delete this post',(done)=>{
     chai.request(app)
-    .delete(`/posts/${toPost._id}`)
+    .delete(`/posts/${NEWLY_POSTED[3]._id}`)
     .end((err,res)=>{
-      res.should.have.status(404);
+      res.should.have.status(200);
       done();
     })
   });

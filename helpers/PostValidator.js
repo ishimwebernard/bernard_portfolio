@@ -1,21 +1,17 @@
-// const Posts = require('../models/Posts');
 import Posts from '../models/Posts';
 class PostValidator{
   static checkIfIdExists = async(_checkId)=>{
-      const postIds = [];
       let retval = 'false';
-      await Posts.find({}, (error,result)=>{
-          for(let sampleResult of result){
-            postIds.push(sampleResult._id);
-            if(_checkId == sampleResult._id){
-                retval = 'true';
-            }
-          }
-          
-          
-      })
+      const data = await Posts.find();
+      for(let sData of data){
+        if(_checkId == sData._id){
+          console.log("IT IS TRUE");
+          retval = 'true'
+        }
+      }
       return retval;
+      
   }
-  
+
 }
 module.exports = PostValidator;

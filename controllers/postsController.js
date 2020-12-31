@@ -22,20 +22,17 @@ class Post{
 
      
         static retrieveAllPosts =  async function(request, response){
-           try{
             const data = await Posts.find();
             return response.send({
                     status: 200,
                     message: 'Get request',
                     data
                 });
-            
-           }catch(error){
-            return response.send(error).status(500);
-           }
         }
-        static getOne =  function(request, response) {
-            PostValidator.checkIfIdExists(String(request.params.postId)).then(return_Value => {
+        static getOne =  async function(request, response) {
+            const return_Value =  await PostValidator.checkIfIdExists(request.params.postId);
+            console.log('This is the ID');
+            console.log(request.params.postId);
                  if(return_Value == 'false'){
                      return response.status(404).send({message:"No such Post Found"});
                  }else{
@@ -45,18 +42,19 @@ class Post{
                      })();
                  }
                      
-                })
+                //})
             }
         static deletePost = async(request, response)=>{
-            PostValidator.checkIfIdExists(String(request.params.postId)).then(retval=>{
+            PostValidator.checkIfIdExists(request.params.postId).then(retval=>{
+                console.log(retval);
                 if(retval == 'true'){
-                 Posts.findOneAndRemove({_id: request.params.postId}, function(error,data){
+                  Posts.remove({_id: request.params.postId}, function(error,data){
                         return response.status(200).send({
                             message: "Record deleted",
                             data
                         })
                 });
-            }else{
+                }else{
                 return response.status(404).send({
                     message: "The post with that ID doesnt exist"
                     
