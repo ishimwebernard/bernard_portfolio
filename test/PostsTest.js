@@ -42,7 +42,7 @@ describe("Posts tests:", async () => {
   });
 
   it('should Patch a  post', (done) => {
-    const res = chai
+    chai
       .request(app)
       .patch('/posts/5fc86a59415f5a11ecc96015')
       .send(toPost)
@@ -51,20 +51,6 @@ describe("Posts tests:", async () => {
         done();
       })
   });
-  // it('should get One single   post', (done) => {
-  //   chai
-  //     .request(app)
-  //     .get(`/posts/${NEWLY_POSTED._id}/`)
-  //     .end((err,res)=>{
-  //       expect(res.status).to.equals(200);
-  //       console.log(res);
-  //       console.log("Something Printed")
-  //       done();
-
-  //     });
-   
-  // });
-
   it('Should not get Posts by using invalid or unexisting Id', (done) => {
     chai
       .request(app)

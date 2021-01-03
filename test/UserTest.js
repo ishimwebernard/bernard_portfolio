@@ -1,8 +1,6 @@
 import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../app';
-import Posts from '../models/Posts';
-import Comment from '../models/Comments';
 import User from '../models/user';
 require('@babel/polyfill');
 
@@ -13,7 +11,6 @@ const sampleUser = new User({
   email: "wwe@tru",
   password: "fullkindapassword "
 })
-var _FINAL_TEST_COMMENT;
 
 describe("User Tests", async () => {
 

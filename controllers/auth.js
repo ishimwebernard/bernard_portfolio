@@ -1,8 +1,3 @@
-// const bcrypt = require('bcrypt');
-// const userSchema = require('../models/user');
-// const jwt = require('jsonwebtoken');
-// const userValidator = require('../helpers/userValidator');
-
 import bcrypt from 'bcrypt';
 import userSchema from '../models/user';
 import jwt from 'jsonwebtoken';

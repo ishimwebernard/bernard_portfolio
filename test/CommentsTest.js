@@ -1,9 +1,7 @@
 import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../app';
-import Posts from '../models/Posts';
 import Comment from '../models/Comments';
-import User from '../models/user';
 require('@babel/polyfill');
 
 chai.use(chaiHttp);
@@ -12,7 +10,7 @@ const testComment = new Comment({
   username: "MOCK USER",
   message: "I love coding for tests",
   email: "isbernard@gmail.com"
-});//5fd305f24042401a6aaacb5a  
+});
 
 var _FINAL_TEST_COMMENT;
 

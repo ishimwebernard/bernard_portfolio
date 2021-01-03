@@ -31,8 +31,6 @@ class Post{
         }
         static getOne =  async function(request, response) {
             const return_Value =  await PostValidator.checkIfIdExists(request.params.postId);
-            console.log('This is the ID');
-            console.log(request.params.postId);
                  if(return_Value == 'false'){
                      return response.status(404).send({message:"No such Post Found"});
                  }else{
@@ -46,7 +44,6 @@ class Post{
             }
         static deletePost = async(request, response)=>{
             PostValidator.checkIfIdExists(request.params.postId).then(retval=>{
-                console.log(retval);
                 if(retval == 'true'){
                   Posts.remove({_id: request.params.postId}, function(error,data){
                         return response.status(200).send({

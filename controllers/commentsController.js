@@ -1,7 +1,3 @@
-
-// const Comments = require('../models/Comments');
-// const CommentValidator = require('../helpers/CommentValidator');
-
 import Comments from '../models/Comments';
 import CommentValidator from '../helpers/CommentValidator';
 class Comment{
@@ -11,7 +7,6 @@ class Comment{
                 message: request.body.message,
                 email: request.body.email
             });
-            console.log(toPost);
            
             toPost.save().then(()=>{
                 return response.send({
