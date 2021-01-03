@@ -61,7 +61,7 @@ class Post{
         }
         static patchPost = async (request, response)=>{
             try{
-                var data = await Posts.update({_id: request.params.postId},
+                let data = await Posts.update({_id: request.params.postId},
                     { $set: {title: request.body.title}}
                     );
                 return response.status(200).send({

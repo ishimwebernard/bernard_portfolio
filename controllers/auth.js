@@ -11,12 +11,12 @@ class userManip{
         })
      }else{
         bcrypt.hash(request.body.password,10,function(error,harshedPassword){
-            var user = new userSchema({
+            let user = new userSchema({
                 name: request.body.name,
                 email: request.body.email,
                 password: harshedPassword
             });
-            var token = jwt.sign({name: user.name}, "$xfg%3./;",{expiresIn: "1h"});
+            let token = jwt.sign({name: user.name}, "$xfg%3./;",{expiresIn: "1h"});
             user.save().then((error)=>{
                 if(error !== undefined){
                     return response.status(200).send({
@@ -33,7 +33,7 @@ class userManip{
 }
 
     static login = function(request, response){
-        var user = {
+        let user = {
             email: request.body.email,
             password: request.body.password
         }
@@ -41,7 +41,7 @@ class userManip{
             if(SUCCESS_USER){
                 bcrypt.compare(request.body.password, SUCCESS_USER.password, function(error, result){
                        if(result){
-                        var token = jwt.sign({name: user.name}, "$xfg%3./;",{expiresIn: "1h"});
+                        let token = jwt.sign({name: user.name}, "$xfg%3./;",{expiresIn: "1h"});
                         return response.status(200).send({
                            message:"Login Succesful",
                            token
