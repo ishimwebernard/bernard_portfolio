@@ -9,7 +9,7 @@ const connectoToMongo = function(){
             console.log("Server Connected to DB");
         
         }).catch(error=>{
-        
+            console.log(error);
         });
 }
 module.exports = connectoToMongo;
