@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.com/ishimwebernard/bernard_portfolio.svg?branch=hot-fix-pure-server)](https://travis-ci.com/ishimwebernard/bernard_portfolio)
-[![Coverage Status](https://coveralls.io/repos/github/ishimwebernard/bernard_portfolio/badge.svg?branch=hot-fix-pure-server)](https://coveralls.io/github/ishimwebernard/bernard_portfolio?branch=hot-fix-pure-server)
+[![Build Status](https://travis-ci.org/ishimwebernard/bernard_portfolio.svg?branch=hot-fix-pure-server)](https://travis-ci.org/ishimwebernard/bernard_portfolio)
+[![Coverage Status](https://coveralls.io/repos/github/ishimwebernard/bernard_portfolio/badge.svg?branch=develop)](https://coveralls.io/github/ishimwebernard/bernard_portfolio?branch=develop)
 ![Bernard Logo](https://firebasestorage.googleapis.com/v0/b/portfoliocapstone-1fd25.appspot.com/o/Bernardlogo.png?alt=media&token=5a5da54f-d293-485d-bcea-b9156e3fd641)<br>
 
 This is a personal brand in which people will find more information about myself
@@ -40,7 +40,7 @@ This application is also hosted and documented
 - [mongoose-unique-validator](https://github.com/blakehaswell/mongoose-unique-validator) - For handling unique validation errors in Mongoose. Mongoose only handles validation at the document level, so a unique index across a collection will throw an exception at the driver level. The `mongoose-unique-validator` plugin helps us by formatting the error like a normal mongoose `ValidationError`.
 - [supertest] and [mocha] for testing the endpoints
 - [eslint] for code readability
-## Application Structure 
+## Application Structure
 
 - `index.js` - The entry point to our application. This file defines our express server and connects it to MongoDB using mongoose. It also requires the routes and models we'll be using in the application.
 - `config/` - This folder contains configuration for passport as well as a central location for configuration/environment variables.
