@@ -10,7 +10,7 @@ class Post{
                 imagesource: request.body.imagesource
             });
             await toPost.save();
-             return response.send({
+             return response.status(200).send({
                  status: 200,
                  message: 'Post a post',
                  data: toPost
@@ -23,9 +23,8 @@ class Post{
      
         static retrieveAllPosts =  async function(request, response){
             const data = await Posts.find();
-            return response.send({
-                    status: 200,
-                    message: 'Get request',
+            return response.status(200).send({
+                    message: 'Success',
                     data
                 });
         }

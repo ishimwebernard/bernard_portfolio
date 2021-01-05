@@ -21,9 +21,13 @@ describe("Comments Test", async () => {
       .send(testComment)
       .end(
         (err, res)=>{
-          res.should.have.status(200);          
+          res.should.have.status(201);          
           _FINAL_TEST_COMMENT = res.body.data;
-          
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('message');
+          expect(res.body.message).to.equal('Success OK');
+          expect(res.body).to.have.property('data');
+
           done();
         }
       )
@@ -35,25 +39,43 @@ describe("Comments Test", async () => {
       .get('/comments')
       .end((err,res)=>{
         expect(res.status).to.equals(200);
+        expect(res.body).to.have.property('message');
+        expect(res.body).to.have.property('data');
+        expect(res).to.be.json;
         done();
       })
   });
   it('Update One Comment', (done) => {
     chai
       .request(app)
-      .patch('/comments/5fd305f24042401a6aaacb5a')
+      .patch(`/comments/${_FINAL_TEST_COMMENT._id}`)
       .send(testComment)
       .end((err,res)=>{
         expect(res.status).to.equals(200);
+        expect(res.body).to.have.property('message');
+        expect(res.body).to.have.property('data');
+
         done();
       })
   });
   it('Return One Comment', (done) => {
     chai
       .request(app)
-      .get('/comments/5fd305f24042401a6aaacb5a')
+      .get(`/comments/${_FINAL_TEST_COMMENT._id}`)
       .end((err,res)=>{
         expect(res.status).to.equals(200);
+        expect(res.body).to.have.property('data');
+        expect(res.body).to.have.property('message');
+        done();
+      })
+  });
+  it('Should not return any comment', (done) => {
+    chai
+      .request(app)
+      .get('/comments/jjjjj')
+      .end((err,res)=>{
+        expect(res.status).to.equals(404);
+        expect(res.body).to.have.property('message');
         done();
       })
   });

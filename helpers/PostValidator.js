@@ -8,6 +8,14 @@ class PostValidator{
           retval = 'true'
         }
       }
+      if(retval == 'false'){
+        const data = await Posts.find();
+        for(let sData of data){
+          if(_checkId == sData._id){
+            retval = 'true'
+          }
+        }
+      }
       return retval;
       
   }

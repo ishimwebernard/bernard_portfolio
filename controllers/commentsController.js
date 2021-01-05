@@ -9,9 +9,8 @@ class Comment{
             });
            
             toPost.save().then(()=>{
-                return response.send({
-                    status: 200,
-                    message: 'POST a comment',
+                return response.status(201).send({
+                    message: 'Success OK',
                     data: toPost
                 })  
             })
@@ -34,10 +33,6 @@ class Comment{
                 }
             })()
            ;
-
-           
-                
-           
         }
         static retrieveComment = async(request, response)=>{
            const data = await Comments.find();
@@ -47,28 +42,42 @@ class Comment{
            })
         }
 
-        static updateComment = (request, response)=>{
-          
-            Comments.update({_id: request.params.commentID},
-                { $set: {message: request.body.message}}
-                ).then((data)=>{
-                    return response.send({
-                        status: 200,
-                        message: 'Patch Comment',
-                        data
-                    })
-                });
+        static updateComment = async(request, response)=>{
+            let res = await CommentValidator.checkIfIdExists(request.params.commentId);
+            if(res == 'true'){
+                Comments.update({_id: request.params.commentID},
+                    { $set: {message: request.body.message}}
+                    ).then((data)=>{
+                        return response.status(200).send({
+                            status: 200,
+                            message: 'Patch Comment',
+                            data
+                        })
+                    });
+            }else{
+                return response.status(404).send({
+                    message: "Comment not found"
+                })
+            }
+           
           
     }
-        static getSingleComment = (request,response)=>{
-          
+        static getSingleComment = async(request,response)=>{
+         let res = await CommentValidator.checkIfIdExists(request.params.commentId);
+         if(res == 'true'){
             Comments.findById(request.params.commentId).then(data=>{
-                return response.send({
+                return response.status(200).send({
                     status: 200,
-                    message: 'GET single comment',
+                    message: 'Success',
                     data
                 })
             })
+         }else{
+             return response.status(404).send({
+                 message: "No such comment"
+             })
+         }
+           
            
         }
 }
