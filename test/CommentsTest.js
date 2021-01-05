@@ -12,7 +12,7 @@ const testComment = new Comment({
   email: "isbernard@gmail.com"
 });
 
-var _FINAL_TEST_COMMENT;
+let _FINAL_TEST_COMMENT;
 
 describe("Comments Test", async () => {
   it('should Save a  Comment', (done) => {
@@ -21,8 +21,9 @@ describe("Comments Test", async () => {
       .send(testComment)
       .end(
         (err, res)=>{
-          res.should.have.status(200);             
+          res.should.have.status(200);          
           _FINAL_TEST_COMMENT = res.body.data;
+          
           done();
         }
       )
