@@ -3,7 +3,6 @@ node_js:
   - "stable"
 env:
   global:
-    - MONGO_HASH="mongodb+srv://bianca:bianca@cluster0.zgi7m.mongodb.net/sampledb?retryWrites=true&w=majority"
 services:
   - mongodb
 script:
