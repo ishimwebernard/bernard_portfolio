@@ -2,7 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/ishimwebernard/bernard_portfolio/badge.svg?branch=develop)](https://coveralls.io/github/ishimwebernard/bernard_portfolio?branch=develop)
 ![Bernard Logo](https://firebasestorage.googleapis.com/v0/b/portfoliocapstone-1fd25.appspot.com/o/Bernardlogo.png?alt=media&token=5a5da54f-d293-485d-bcea-b9156e3fd641)<br>
 
-This is a personal brand in which people will find more information about myself
+This is a personal brand in which people will find more information about myself 
 
 ---
 >## Table of contents
