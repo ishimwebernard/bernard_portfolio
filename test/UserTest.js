@@ -13,7 +13,7 @@ const sampleUser = new User({
   password: "fullkindapassword "
 })
 
-describe.only("User Tests", async () => {
+describe("User Tests", async () => {
 
 
   it('Sign Up a user', (done) => {
