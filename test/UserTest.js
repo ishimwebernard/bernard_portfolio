@@ -2,6 +2,7 @@ import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../app';
 import User from '../models/user';
+import jwt_decode from 'jwt-decode';
 require('@babel/polyfill');
 
 chai.use(chaiHttp);
@@ -12,7 +13,7 @@ const sampleUser = new User({
   password: "fullkindapassword "
 })
 
-describe("User Tests", async () => {
+describe.only("User Tests", async () => {
 
 
   it('Sign Up a user', (done) => {
@@ -21,7 +22,11 @@ describe("User Tests", async () => {
       .post('/account')
      .send(sampleUser)
       .end((err,res)=>{
-        expect(res.status).to.equals(200);
+        expect(res.status).to.equals(201);
+        expect(res.body).to.be.an('object');
+        expect(res.body).to.have.property('token');
+        const d = jwt_decode(res.body.token).name;
+        expect(d).to.equal(sampleUser.name);
         done();
       })
   });
@@ -35,6 +40,10 @@ describe("User Tests", async () => {
       })
       .end((err,res)=>{
         expect(res.status).to.equals(200);
+         expect(res.body).to.be.an('object');
+        expect(res.body).to.have.property('token');
+        expect(res.body).to.have.property('message');
+        res.body.message.should.equal('Login Succesful');
         done();
       })
   });
@@ -44,7 +53,9 @@ describe("User Tests", async () => {
     email: "wwe@tru",
     password: "A VERY UNTRUE PASSWORD"})
     .end((error,result)=>{
-      result.should.have.status(500);
+      result.should.have.status(401);
+      expect(result).to.be.an('object');
+      expect(result.body.message).to.equal('Invalid Credentials');
       done();
     })
   });
@@ -52,6 +63,8 @@ describe("User Tests", async () => {
     chai.request(app).post('/account/').send({niom:"Fake name", email:"isbernard",password:"123"})
     .end((error,result)=>{
       result.should.have.status(400);
+      expect(result).to.be.an('object');
+      expect(result.body.message).to.equal('Bad request');
       done();
     })
   });

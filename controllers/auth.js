@@ -19,7 +19,7 @@ class userManip{
             let token = jwt.sign({name: user.name}, "$xfg%3./;",{expiresIn: "1h"});
             user.save().then((error)=>{
                 if(error !== undefined){
-                    return response.status(200).send({
+                    return response.status(201).send({
                           token,
                           message: "Success"
                        })
@@ -47,7 +47,7 @@ class userManip{
                            token
                         });
                        }else{
-                          return response.status(500).json({
+                          return response.status(401).json({
                                
                                message: "Invalid Credentials"
                            })
