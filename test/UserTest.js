@@ -9,7 +9,7 @@ chai.use(chaiHttp);
 chai.should();
 const sampleUser = new User({
   name: "HHH",
-  email: "wwe@tru",
+  email: "wwe@gmail.com",
   password: "fullkindapassword "
 })
 
@@ -22,11 +22,14 @@ describe("User Tests", async () => {
       .post('/account')
      .send(sampleUser)
       .end((err,res)=>{
+        console.log('Some kinda response');
+        console.log(res.body);
         expect(res.status).to.equals(201);
         expect(res.body).to.be.an('object');
         expect(res.body).to.have.property('token');
         const d = jwt_decode(res.body.token).name;
         expect(d).to.equal(sampleUser.name);
+       
         done();
       })
   });
@@ -60,11 +63,12 @@ describe("User Tests", async () => {
     })
   });
   it('Should not sign up a user with incomplete info and this should be faster',(done)=>{
-    chai.request(app).post('/account/').send({niom:"Fake name", email:"isbernard",password:"123"})
+    chai.request(app).post('/account/').send({ email:"isbernard",password:"123"})
     .end((error,result)=>{
       result.should.have.status(400);
       expect(result).to.be.an('object');
       expect(result.body.message).to.equal('Bad request');
+      console.log(result.body);
       done();
     })
   });

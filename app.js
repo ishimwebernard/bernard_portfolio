@@ -5,7 +5,7 @@ import connectoToMongo from './config/mongo';
 import routes from './routes/index';
 import swaggerJsDoc from 'swagger-jsdoc';
 import swaggerUI from 'swagger-ui-express';
-
+import fileupload from "express-fileupload";
 
 require("dotenv/config");
 require("@babel/polyfill");
@@ -23,10 +23,13 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 app.use(express.json({extended: false}));
+app.use(fileupload({ useTempFiles: true }));
 app.use(bodyParser.json());
 
 connectoToMongo();
 app.use(routes);
+
+
 
 
 

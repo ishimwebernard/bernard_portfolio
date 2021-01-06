@@ -1,5 +1,7 @@
 import Posts from '../models/Posts';
 import PostValidator from '../helpers/PostValidator';
+import uploader from "../config/cloudnary";
+
 
 class Post{
      static async savePost(request, response){
@@ -7,20 +9,35 @@ class Post{
             const toPost = new Posts({
                 title: request.body.title,
                 description: request.body.description,
-                imagesource: request.body.imagesource
+                imageUrl: "",
+                imageId: ""
             });
-            await toPost.save();
+            //await toPost.save();
+            console.log(Object.keys(request));
+            //if (request.files) {
+                const tmp = request.files.image.tempFilePath;
+                console.log(tmp);
+                const result = await uploader.upload(tmp, (_, result) => result);
+                console.log(result);
+                toPost.imageUrl = result.url;
+                toPost.imageId = result.public_id;
+                (async()=>{
+                    await toPost.save();
+                })();
+                console.log(request.files);
+                //return response.status(201).json({ success: true, data: toPost });
+             // }
              return response.status(200).send({
                  status: 200,
                  message: 'Post a post',
                  data: toPost
-             }); 
+             });
         }catch(error){
             return response.send(error).status(500)
         }
-     }  
+     }
 
-     
+
         static retrieveAllPosts =  async function(request, response){
             const data = await Posts.find();
             return response.status(200).send({
@@ -38,7 +55,7 @@ class Post{
                         return response.status(200).send({message:"Post retrieved Succesfully",data});
                      })();
                  }
-                     
+
                 //})
             }
         static deletePost = async(request, response)=>{
@@ -53,7 +70,7 @@ class Post{
                 }else{
                 return response.status(404).send({
                     message: "The post with that ID doesnt exist"
-                    
+
                 })
             }
               });
@@ -66,11 +83,12 @@ class Post{
                 return response.status(200).send({
                     message: 'Post Updated succesfully',
                     data
-                })    
+                })
             }catch(error){
                 return response.status(500).send(error);
             }
         }
+
 
 }
 module.exports = Post;

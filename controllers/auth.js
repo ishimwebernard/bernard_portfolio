@@ -2,33 +2,40 @@ import bcrypt from 'bcrypt';
 import userSchema from '../models/user';
 import jwt from 'jsonwebtoken';
 import userValidator from '../helpers/userValidator';
+import JOIValidator from '../helpers/joivalidator';
 
 class userManip{
     static signUp= function(request,response){
-     if(userValidator.checkForSignUp(request.body) == 'false'){
-        return response.status(400).send({
-            message: "Bad request"
+        //console.log(request.body);
+        JOIValidator.validateForSignUp(request.body).then(error=>{
+            //console.log(error);
+            if(error !== 'Success'){
+                return response.status(400).send({
+                    message: "Bad request",
+                    error
+                })
+            }else{
+                bcrypt.hash(request.body.password,10,function(error,harshedPassword){
+                    let user = new userSchema({
+                        name: request.body.name,
+                        email: request.body.email,
+                        password: harshedPassword
+                    });
+                    let token = jwt.sign({name: user.name}, "$xfg%3./;",{expiresIn: "1h"});
+                    user.save().then((error)=>{
+                        if(error !== undefined){
+                            return response.status(201).send({
+                                  token,
+                                  message: "Success"
+                               })
+                        }
+                        
+                     })
+        
+            })
+             } 
         })
-     }else{
-        bcrypt.hash(request.body.password,10,function(error,harshedPassword){
-            let user = new userSchema({
-                name: request.body.name,
-                email: request.body.email,
-                password: harshedPassword
-            });
-            let token = jwt.sign({name: user.name}, "$xfg%3./;",{expiresIn: "1h"});
-            user.save().then((error)=>{
-                if(error !== undefined){
-                    return response.status(201).send({
-                          token,
-                          message: "Success"
-                       })
-                }
-                
-             })
-
-    })
-     }   
+  
        
 }
 

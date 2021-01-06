@@ -11,9 +11,17 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    imagesource:{
+    imageUrl: {
         type: String,
-        required: true
+        required: false
+    },
+    imageId: {
+        type: String,
+        required: false
     }
+    // imagesource:{
+    //     type: String,
+    //     required: true
+    // }
 });
 module.exports = mongoose.model('Post', postSchema);
