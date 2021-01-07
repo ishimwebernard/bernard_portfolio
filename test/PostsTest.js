@@ -37,15 +37,20 @@ describe('Posts tests:', async () => {
         done();
       });
   });
-  it('should create post', async () => {
-    const res = await chai
+  it('should create post',  (done) => {
+      chai
       .request(app)
       .post('/posts')
       .field('title', toPost.title)
       .field('description', toPost.description)
-      .attach('image', path.resolve(__dirname, './uploads/HelpRender.png'));
-    res.should.have.status(201);
-   res.body.should.have.property('data');
+      .attach('image', path.resolve(__dirname, './uploads/HelpRender.png'))
+      .end((err,res)=>{
+        expect(res.status).to.equal(201);
+        expect(res.body).to.have.property('message');
+        expect(res.body).to.have.property('data');
+        done();
+
+      })
   });
   it('should Patch a  post', (done) => {
     chai
