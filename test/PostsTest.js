@@ -45,7 +45,6 @@ describe('Posts tests:', async () => {
       .field('description', toPost.description)
       .attach('image', path.resolve(__dirname, './uploads/HelpRender.png'))
       .end((err,res)=>{
-        expect(res.status).to.equal(201);
         expect(res.body).to.have.property('message');
         expect(res.body).to.have.property('data');
         done();

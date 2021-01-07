@@ -20,7 +20,6 @@ class Post{
                     await toPost.save();
                 })();
              return response.status(201).send({
-                 status: 201,
                  message: 'Post a post',
                  data: toPost
              });
