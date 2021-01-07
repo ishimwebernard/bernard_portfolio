@@ -24,7 +24,7 @@ class Post{
                  data: toPost
              });
         }catch(error){
-            return response.send(error).status(500)
+            return response.status(500).send({error});
         }
      }
 
