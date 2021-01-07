@@ -1,14 +1,11 @@
 import bcrypt from 'bcrypt';
 import userSchema from '../models/user';
 import jwt from 'jsonwebtoken';
-import userValidator from '../helpers/userValidator';
 import JOIValidator from '../helpers/joivalidator';
 
 class userManip{
     static signUp= function(request,response){
-        //console.log(request.body);
         JOIValidator.validateForSignUp(request.body).then(error=>{
-            //console.log(error);
             if(error !== 'Success'){
                 return response.status(400).send({
                     message: "Bad request",

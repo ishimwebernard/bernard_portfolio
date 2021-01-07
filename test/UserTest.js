@@ -22,8 +22,6 @@ describe("User Tests", async () => {
       .post('/account')
      .send(sampleUser)
       .end((err,res)=>{
-        console.log('Some kinda response');
-        console.log(res.body);
         expect(res.status).to.equals(201);
         expect(res.body).to.be.an('object');
         expect(res.body).to.have.property('token');
@@ -68,7 +66,6 @@ describe("User Tests", async () => {
       result.should.have.status(400);
       expect(result).to.be.an('object');
       expect(result.body.message).to.equal('Bad request');
-      console.log(result.body);
       done();
     })
   });

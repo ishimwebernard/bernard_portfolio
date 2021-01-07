@@ -12,22 +12,14 @@ class Post{
                 imageUrl: "",
                 imageId: ""
             });
-            //await toPost.save();
-            console.log(Object.keys(request));
-            //if (request.files) {
                 const tmp = request.files.image.tempFilePath;
-                console.log(tmp);
                 const result = await uploader.upload(tmp, (_, result) => result);
-                console.log(result);
                 toPost.imageUrl = result.url;
                 toPost.imageId = result.public_id;
                 (async()=>{
                     await toPost.save();
                 })();
-                console.log(request.files);
-                //return response.status(201).json({ success: true, data: toPost });
-             // }
-             return response.status(200).send({
+             return response.status(201).send({
                  status: 200,
                  message: 'Post a post',
                  data: toPost
