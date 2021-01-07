@@ -47,6 +47,7 @@ describe('Posts tests:', async () => {
       .end((err,res)=>{
         expect(res.body).to.have.property('message');
         expect(res.body).to.have.property('data');
+        res.body.data.should.have.property('imageUrl');
         done();
 
       })
