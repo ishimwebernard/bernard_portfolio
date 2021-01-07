@@ -4,7 +4,9 @@ node_js:
 env:
   global:
     - MONGO_HASH="mongodb+srv://bianca:bianca@cluster0.zgi7m.mongodb.net/sampledb?retryWrites=true&w=majority"
-
+    - CLOUDINARY_NAME='bn47'
+    - CLOUDINARY_API_KEY='849371263484589'
+    - CLOUDINARY_API_SECRET='SlQBSPsWlUH8FPdPi6DWH7d7KRs'
 services:
   - mongodb
 script:
