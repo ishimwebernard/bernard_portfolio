@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />  
+    <title>Admin Dashboard</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="../css/adminpanel.css">
+</head>
+<body>
+    <div class="content" id="content">
+        <div class="col1" id="col1">
+          
+            <div class="logo">
+				<div class="ishimwe">ISHIMWE</div>
+				<div class="bernard">BERNARD</div>
+            </div>
+            <div class="profilecontainer">
+            </div>
+            <div class="navigation" >
+                <div class="navItem" onclick="changeTab('col2')">
+                    <img src="../assets/images/users.png" alt="" >
+                    <h4 class="navTitle"  id="dashboard">Dashboard</h4>
+                </div>
+                <div class="navItem" onclick="changeTab('usersTab')">
+                    <img src="../assets/images/users.png" alt="">
+                    <h4 class="navTitle"  id="users">Users</h4>
+                </div>
+                <div class="navItem" onclick="changeTab('Articles')">
+                    <img src="../assets/images/users.png" alt="">
+                    <h4 class="navTitle"  id="articles">Articles</h4>
+                </div>
+                <div class="navItem" id="backButton"  onclick="REVEALDOM()">
+                    <h4 class="navTitle">Back</h4>
+                    <img src="../assets/images/back.png" alt="">
+
+                </div>
+                
+            </div>
+          
+         
+        </div>
+        <div id="col2" class="col2">
+           <div class="hdcnt">
+            <div id="mobileNavigationButton" class="mobileNavigationButton" style="float:left; margin-top: 1.15rem; cursor: pointer;" onclick="REVEALDOM()">
+                <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+                <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+                <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+            </div>
+           <h1 class="col2Title" style="margin-left: 5rem;">Dashboard</h1>
+           </div>
+           <div class="stats">
+               <div class="statItem">
+                   <img src="../assets/images/tiles.png" alt="">
+                   <div class="statdesc">
+                       <h3 class="number">1200</h3>
+                       <P class="sampleTxt">USERS</P>
+                   </div>
+               </div>
+               <div class="statItem">
+                <img src="../assets/images/subscribers.png" alt="">
+                <div class="statdesc">
+                    <h3 class="number">1200</h3>
+                    <P class="sampleTxt">SUBSCR</P>
+                </div>
+            </div>
+            <div class="statItem">
+                <img src="../assets/images/articles.png" alt="">
+                <div class="statdesc">
+                    <h3 class="number">1200</h3>
+                    <P class="sampleTxt">ARTICLES</P>
+                </div>
+            </div>
+            <div class="statItem">
+                <img src="../assets/images/online.png" alt="">
+                <div class="statdesc">
+                    <h3 class="number">1200</h3>
+                    <P class="sampleTxt">ONLINE</P>
+                </div>
+            </div>
+           </div>
+           <div class="graphs">
+            <div id="subscribersChart" class="chart"></div>
+            <div id="usersChart"  class="chart" ></div>
+
+    
+
+           </div>
+           <div class="feed">
+            <h1 class="f"><span>F</span>eed</h2>
+             <div class="edit"><h4>Edit</h4></div>   
+        </div>
+        <div class="newsplot" id="one">
+            <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                <img src="../assets/images/iwon.png" alt="I won the prize">
+                <h3 class="header">I won the Africa App development award</h3>
+                <p class="contentx">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis eget congue. Aliquam non mauris non dui pulvinar bibendum ac eget nulla. Integer a metus sollicitudin, luctus nunc eu, posuere massa. </p>
+            </div>
+            <div class="plotcard" id="iwon">
+                <img src="../assets/images/code.png" alt="I won the prize">
+                <h3 class="header">I won the Africa App development award</h3>
+                <p class="contentx">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis eget congue. Aliquam non mauris non dui pulvinar bibendum ac eget nulla. Integer a metus sollicitudin, luctus nunc eu, posuere massa. </p>
+            </div>
+            <div class="plotcard" id="iwon">
+                <img src="../assets/images/mac.png" alt="I won the prize">
+                <h3 class="header">I won the Africa App development award</h3>
+                <p class="contentx">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis eget congue. Aliquam non mauris non dui pulvinar bibendum ac eget nulla. Integer a metus sollicitudin, luctus nunc eu, posuere massa. </p>
+            </div>
+            
+        </div>
+        </div>
+        <div class="col2" id="usersTab">
+            <div class="hdcnt">
+                <div id="mobileNavigationButton" class="mobileNavigationButton" style="float:left; margin-top: 1.15rem; cursor: pointer;" onclick="REVEALDOM()">
+                    <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+                    <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+                    <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+                </div>
+               <h1 id="userTitleInTitle" class="col2Title" style="margin-left: 5rem;">Users</h1>
+              
+               </div>
+              <div class="newSexion">
+                  <div class="singleUserInfo" id="singleUserInfo">
+                      <div class="basInfo">
+                        <img src="../assets/images/user4.png" class="profile" id="profile">
+                       <div class="tt">
+                        
+                            <h3 class="title" id="name">John Jones</h3>
+                            <div class="cred">
+                                <img src="../assets/images/location.png" alt="">
+                                <div class="p" id="location">Massachusets</div>
+                            </div>
+                            <div class="cred">
+                              <img src="../assets/images/gmail.png" alt="">
+                              <div class="p" id="email">emailemail.com</div>
+                          </div>
+                          <div class="cred">
+                              <img src="../assets/images/time.png" alt="">
+                              <div class="p" id="dateJoined">Joined: 1/1/2000</div>
+                          </div>
+                       
+                       </div>
+                      </div>
+                      <div class="textSection">
+                        <div class="header">
+                            <p>Action</p>
+                            <p>Date</p>
+                        </div>
+                        <div class="item">
+                            <p>Comment</p>
+                            <p>10/28/12</p>
+                        </div>
+                        <div class="item">
+                            <p>Read Article</p>
+                            <p>10/28/12</p>
+                        </div>
+                        <div class="item">
+                            <p>Call me</p>
+                            <p>10/28/12</p>
+                        </div>
+                        <div class="item">
+                            <p>SDprinted</p>
+                            <p>10/28/12</p>
+                        </div>
+                        <div class="item">
+                            <p>Ate</p>
+                            <p>10/28/12</p>
+                        </div>
+                        <div class="item">
+                            <p>Called Me</p>
+                            <p>10/28/12</p>
+                        </div>
+                      </div>
+                  </div>
+                <div class="usersDisplayer">
+                    <div class="user" onclick="displayInformation('../assets/images/user1.png','Ronald Richards','Rwanda','ishimer','2001')">
+                        <img class="userProfile" role="img" aria-label="User" src="../assets/images/user1.png">
+                        <div class="credentials">
+                            <div class="nameAndStatus">
+                                <p class="name">Ronald Richards</p>
+                                <div class="avail"></div>
+                            </div>
+                            <p class="email">emailemail@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="user" onclick="displayInformation('../assets/images/user2.png','Ronald Richards','Rwanda','ishimer','2001')">
+                        <img class="userProfile" role="img" aria-label="User" src="../assets/images/user2.png">
+                        <div class="credentials">
+                            <div class="nameAndStatus">
+                                <p class="name">Ronald Richards</p>
+                                <div class="avail"></div>
+                            </div>
+                            <p class="email">emailemail@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="user" onclick="displayInformation('../assets/images/user3.png','Devon Lane','Mozambique','devonlane@gmail.com','12/4/2007')">
+                        <img class="userProfile" role="img" aria-label="User" src="../assets/images/user3.png">
+                        <div class="credentials">
+                            <div class="nameAndStatus">
+                                <p class="name">Devon Lane</p>
+                                <div class="avail"></div>
+                            </div>
+                            <p class="email">emailemail@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="user" onclick="displayInformation('../assets/images/user4.png','Esther Howard','South Africa','estherhoward@gmail.com','12/4/2005')">
+                        <img class="userProfile" role="img" aria-label="User" src="../assets/images/user4.png">
+                        <div class="credentials">
+                            <div class="nameAndStatus">
+                                <p class="name">Esther Howard</p>
+                                <div class="avail"></div>
+                            </div>
+                            <p class="email">emailemail@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="user" onclick="displayInformation('../assets/images/user5.png','Savannah Nguyen','Kenya','sanavaken@hotmail.com','1/5/2020')">
+                        <img class="userProfile" role="img" aria-label="User" src="../assets/images/user5.png">
+                        <div class="credentials">
+                            <div class="nameAndStatus">
+                                <p class="name">Savannah Nguyen</p>
+                                <div class="avail"></div>
+                            </div>
+                            <p class="email">emailemail@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="user" onclick="displayInformation('../assets/images/user6.png','Eleanor Pena','Rwanda','eleanor@hotmail.com','1/5/2020')">
+                        <img class="userProfile" role="img" aria-label="User" src="../assets/images/user6.png">
+                        <div class="credentials">
+                            <div class="nameAndStatus">
+                                <p class="name">Eleanor Pena</p>
+                                <div class="avail"></div>
+                            </div>
+                            <p class="email">emailemail@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="user" onclick="displayInformation('../assets/images/user7.png','Cameron Williamson','Congo','camreom@hotmail.com','1/5/2020')">
+                        <img class="userProfile" role="img" aria-label="User" src="../assets/images/user7.png">
+                        <div class="credentials">
+                            <div class="nameAndStatus">
+                                <p class="name">Cameron Williamson</p>
+                                <div class="avail"></div>
+                            </div>
+                            <p class="email">emailemail@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="user" onclick="displayInformation('../assets/images/user4.png','Albert Flores','Burundi','flores@hotmail.com','1/5/2020')">
+                        <img class="userProfile" role="img" aria-label="User" src="../assets/images/user4.png">
+                        <div class="credentials">
+                            <div class="nameAndStatus">
+                                <p class="name">Albert Flores</p>
+                                <div class="avail"></div>
+                            </div>
+                            <p class="email">emailemail@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </div>
+        <div class="col2" id="Articles">
+            <div class="hdcnt">
+                <div id="mobileNavigationButton" class="mobileNavigationButton" style="float:left; margin-top: 1.15rem; cursor: pointer;" onclick="REVEALDOM()">
+                    <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+                    <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+                    <div class="line" style=" margin-top: .25rem; width: 2rem; height: .25rem; background: #000"></div>
+                </div>
+               <h1 class="col2Title" style="margin-left: 5rem;">Articles</h1>
+            
+               </div>
+               <div class="buttonGroup">
+                <div class="button" onclick="showPopup()">
+                    <img src="../assets/images/new.png" alt="">
+                    <h4 class="desc">New</h4>
+                </div>
+                <div class="button" onclick="showPopupRemove()" >
+                 <img src="../assets/images/remove.png" alt="">
+                 <h4 class="desc">Remove</h4>
+             </div>
+            </div>
+            <div class="presentArticle">
+                <div class="board">
+                    <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                        <img src="../assets/images/iwon.png" alt="I won the prize">
+                       <div class="cc">
+                        <h3 class="header">I won the Africa App development award</h3>
+                        <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                       </div>
+                    </div>
+                            
+                    <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                        <img src="../assets/images/iwon.png" alt="I won the prize">
+                       <div class="cc">
+                        <h3 class="header">I won the Africa App development award</h3>
+                        <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                       </div>
+                    </div>
+                    <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                        <img src="../assets/images/iwon.png" alt="I won the prize">
+                       <div class="cc">
+                        <h3 class="header">I won the Africa App development award</h3>
+                        <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                       </div>
+                    </div>
+                            </div>
+                            <div class="board">
+                                <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                                    <img src="../assets/images/iwon.png" alt="I won the prize">
+                                   <div class="cc">
+                                    <h3 class="header">I won the Africa App development award</h3>
+                                    <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                                   </div>
+                                </div>
+                                        
+                                <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                                    <img src="../assets/images/iwon.png" alt="I won the prize">
+                                   <div class="cc">
+                                    <h3 class="header">I won the Africa App development award</h3>
+                                    <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                                   </div>
+                                </div>
+                                <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                                    <img src="../assets/images/iwon.png" alt="I won the prize">
+                                   <div class="cc">
+                                    <h3 class="header">I won the Africa App development award</h3>
+                                    <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                                   </div>
+                                </div>
+                                        </div>
+                                        <div class="board">
+                                            <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                                                <img src="../assets/images/iwon.png" alt="I won the prize">
+                                               <div class="cc">
+                                                <h3 class="header">I won the Africa App development award</h3>
+                                                <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                                               </div>
+                                            </div>
+                                                    
+                                            <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                                                <img src="../assets/images/iwon.png" alt="I won the prize">
+                                               <div class="cc">
+                                                <h3 class="header">I won the Africa App development award</h3>
+                                                <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                                               </div>
+                                            </div>
+                                            <div class="plotcard" id="iwon" onclick="location.href=`sampleNews.html`">
+                                                <img src="../assets/images/iwon.png" alt="I won the prize">
+                                               <div class="cc">
+                                                <h3 class="header">I won the Africa App development award</h3>
+                                                <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam a turpis  </p>
+                                               </div>
+                                            </div>
+                                                    </div>
+            </div>
+            <!--For the addition of a new blog or article-->
+   <div class="pco" id="pco">
+    <div class="popup" id="popup">
+                
+        <div class="first">
+           <h2 class="fititle"><span>N</span>ew article</h2>
+       </div>
+       <input type="text" placeholder="Title" >
+       <textarea name="" id="" cols="30" rows="8" placeholder="Enter Content | Drag and Drop images"></textarea>
+       <div class="optionsSide">
+           <div class="cancel" onclick="hidePopup()">
+               <h4 class="word" >Cancel</h4>
+           </div>
+           <div class="cancel" onclick="hidePopup()">
+               <h4 class="word">Finish</h4>
+           </div>
+           
+       </div>
+       
+                   </div>
+           
+   </div>
+     <!--For the re,oval of an  article-->
+   <div class="pcox" id="pcox">
+    <div class="popup" id="listRemove">
+                      
+        <div class="first">
+            <h2 class="fititle"><span>R</span>emove article</h2>
+        </div>
+        <div class="cont">
+            <label class="cn">I won the hackathon
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+              </label>
+              <label class="cn">I created a new App
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="cn">Amet minim mollit non 
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="cn">Lorem ipsum dolor sit amet
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="cn">nibh, elementum in tellus non
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="cn">consectetur diam sollicitudin nec. 
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="cn">I created a new App
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="cn">I created a new App
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+        </div>
+            <div class="optionsSide">
+                <div class="cancel" onclick="hidePopupRemove()">
+                    <h4 class="word" >Cancel</h4>
+                </div>
+                <div class="cancel" onclick="hidePopupRemove()">
+                    <h4 class="word">Finish</h4>
+                </div>
+                
+            </div>
+        </div>   
+   </div>
+        </div>
+        
+    </div>
+    <script type="text/javascript">
+        function snav(){
+            console.log(`I am done`);
+        }
+    
+          google.charts.load('current', {'packages':['corechart']});
+    
+          google.charts.setOnLoadCallback(drawSubscribers);
+          google.charts.setOnLoadCallback(drawUsers);
+          function drawSubscribers() {
+            var data = google.visualization.arrayToDataTable([
+              ['Day', 'Subscribers'],
+              ['Mon',  1000],
+              ['Tue',  1170],
+              ['Wed',  660],
+              ['Thur',  1030],
+              [`Sat`,234],
+              [`Sub`,5656]
+            ]);
+    
+            var options = {
+              title: 'Subscribers: This week',
+              curveType: 'function',
+              legend: { position: 'bottom' },
+              backgroundColor: `#FAFAFA`,
+              colors:['D70046','#000']
+            };
+    
+            var chart = new google.visualization.LineChart(document.getElementById('subscribersChart'));
+    
+            chart.draw(data, options);
+          }
+    
+          function drawUsers() {
+            var data = google.visualization.arrayToDataTable([
+            ['Day', 'Users'],
+              ['Mon',  0],
+              ['Tue',  2170],
+              ['Wed',  18656],
+              ['Thur',  2030],
+              [`Sat`,234],
+              [`Sub`,10656]
+            ]);
+    
+            
+            var options = {
+              title: 'Users: This week',
+              curveType: 'function',
+              legend: { position: 'bottom' },
+              backgroundColor: `#FAFAFA`,
+              colors:['D70046','#000']
+            };
+           
+    
+            var chart = new google.visualization.LineChart(document.getElementById('usersChart'));
+    
+            chart.draw(data, options);
+          }
+          function revealDashboard(){
+        document.getElementById(`col1`).style.display = block;
+        console.log(`Revealed`);
+    }
+    function REVEALDOM(){
+        var myDoc = document.getElementById(`col1`);
+        if(myDoc.style.display == `none`){
+            myDoc.style.display = `block`;
+            
+        }else{
+            myDoc.style.display = `none`;
+        }
+        console.log(`I was called`);
+    }
+    function changeTab(contentID){
+        var litItems = document.getElementsByClassName(`col2`);
+        var counter;
+        for(counter = 0; counter < litItems.length;counter++){
+           litItems[counter].style.display = "none";
+           console.log(Number(litItems.length));
+        }
+        console.log(Number(counter));
+        document.getElementById(contentID).style.display = "block";
+        console.log(`Trying to reveal ${contentID}`);
+
+        switch (contentID){
+            case `col2`:
+                document.querySelector(`#dashboard`).style.color = "#fff";
+                document.querySelector(`#dashboard`).style.paddingRight = "20px";
+                document.querySelector(`#dashboard`).style.borderRight = "#D70046 4px solid";
+                document.querySelector(`#users`).style.borderRight = "none";
+                document.querySelector(`#articles`).style.borderRight = "none";
+                document.querySelector(`#users`).style.color = "#999";
+                document.querySelector(`#articles`).style.color = "#999";
+                break;
+            case `usersTab`: 
+            document.querySelector(`#users`).style.color = "#fff";
+            document.querySelector(`#dashboard`).style.borderRight = "none";
+                document.querySelector(`#articles`).style.borderRight = "none";
+            document.querySelector(`#users`).style.paddingRight = "20px";
+                document.querySelector(`#users`).style.borderRight = "#D70046 4px solid";
+            document.querySelector(`#articles`).style.color = "#999";
+            document.querySelector(`#dashboard`).style.color = "#999";
+
+                break;
+            case `Articles`: 
+            document.querySelector(`#articles`).style.color = "#fff";
+            document.querySelector(`#users`).style.borderRight = "none";
+                document.querySelector(`#dashboard`).style.borderRight = "none";
+            document.querySelector(`#articles`).style.paddingRight = "20px";
+                document.querySelector(`#articles`).style.borderRight = "#D70046 4px solid";
+            document.querySelector(`#dashboard`).style.color = "#999";
+            document.querySelector(`#users`).style.color = "#999";
+
+
+                break;
+
+        }
+
+
+    }
+    function displayInformation(IMAGESOURCE,NAME,LOCATION,EMAIL,DATEJOOINED){
+        var imageSetter = document.getElementById(`profile`);
+        var email = document.getElementById('email');
+        var dateJoined = document.getElementById(`dateJoined`);
+        var name = document.getElementById(`name`);
+        var location = document.getElementById(`location`);
+        var element = document.querySelector("#content");
+        
+
+        imageSetter.src = IMAGESOURCE;
+        email.innerText = EMAIL;
+        dateJoined.innerText = DATEJOOINED;
+        name.innerText = NAME;
+       location.innerText = LOCATION;
+       element.scrollIntoView();
+       
+    }
+    function  hidePopup(){
+        var element = document.getElementById('pco');
+        element.style.display = "none";
+        console.log(element.innerHTML);
+    }
+    function  showPopup(){
+        var element = document.getElementById('pco');
+        element.style.display = "block";
+        console.log(element.innerHTML);
+    }
+    function  showPopupRemove(){
+        var element = document.getElementById('pcox');
+        element.style.display = "block";
+        console.log(`Trigerred the remove feature`);
+    }
+    function  hidePopupRemove(){
+        var element = document.getElementById('pcox');
+        element.style.display = "none";
+        console.log(`Trigerred the remove feature`);
+    }
+    
+    
+        </script>
+</body>
+</html>
